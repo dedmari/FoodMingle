@@ -1,0 +1,135 @@
+/**
+ * Using Rails-like standard naming convention for endpoints.
+ * GET     /api/cookoffers              ->  index
+ * POST    /api/cookoffers              ->  create
+ * GET     /api/cookoffers/:id          ->  show
+ * PUT     /api/cookoffers/:id          ->  update
+ * DELETE  /api/cookoffers/:id          ->  destroy
+ */
+
+'use strict';
+
+import _ from 'lodash';
+import Cookoffer from './cookoffer.model';
+import multer from 'multer';
+
+var storage = multer.diskStorage({ //multers disk storage settings
+        destination: function (req, file, cb) {
+            cb(null, './uploads/');
+        },
+        filename: function (req, file, cb) {
+            var datetimestamp = Date.now();
+            cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1]);           
+
+        }
+    });
+
+var upload = multer({ //multer settings
+                    storage: storage
+                }).single('file');
+
+// console.log("FILENAME:");
+// console.log(storage.filename);
+// console.log("FILENAME:");
+
+
+function respondWithResult(res, statusCode) {
+  statusCode = statusCode || 200;
+  return function(entity) {
+    if (entity) {
+      res.status(statusCode).json(entity);
+    }
+  };
+}
+
+function saveUpdates(updates) {
+  return function(entity) {
+    var updated = _.merge(entity, updates);
+    return updated.save()
+      .then(updated => {
+        return updated;
+      });
+  };
+}
+
+function removeEntity(res) {
+  return function(entity) {
+    if (entity) {
+      return entity.remove()
+        .then(() => {
+          res.status(204).end();
+        });
+    }
+  };
+}
+
+function handleEntityNotFound(res) {
+  return function(entity) {
+    if (!entity) {
+      res.status(404).end();
+      return null;
+    }
+    return entity;
+  };
+}
+
+function handleError(res, statusCode) {
+  statusCode = statusCode || 500;
+  return function(err) {
+    res.status(statusCode).send(err);
+  };
+}
+
+// Gets a list of Cookoffers
+export function index(req, res) {
+    console.log("ïn cookoffer backend");
+  return Cookoffer.find().exec()
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+// Gets a single Cookoffer from the DB
+export function show(req, res) {
+  return Cookoffer.findById(req.params.id).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+// Creates a new Cookoffer in the DB
+export function create(req, res) {
+  upload(req,res,function(err){
+          //console.log(req.file.filename);
+          var offerAttr = req.body;
+          offerAttr.dishimage = req.file.filename;
+          console.log(offerAttr);
+          return Cookoffer.create(offerAttr)
+            .then(respondWithResult(res, 201))
+            .catch(handleError(res));
+            // if(err){
+            //      res.json({error_code:1,err_desc:err});
+            //      return;
+            // }
+            //  res.json({error_code:0,err_desc:null});
+        });
+}
+
+// Updates an existing Cookoffer in the DB
+export function update(req, res) {
+  if (req.body._id) {
+    delete req.body._id;
+  }
+  return Cookoffer.findById(req.params.id).exec()
+    .then(handleEntityNotFound(res))
+    .then(saveUpdates(req.body))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+// Deletes a Cookoffer from the DB
+export function destroy(req, res) {
+  return Cookoffer.findById(req.params.id).exec()
+    .then(handleEntityNotFound(res))
+    .then(removeEntity(res))
+    .catch(handleError(res));
+}

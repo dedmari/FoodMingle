@@ -1,0 +1,110 @@
+<div id="all">
+    <div id="content">
+        <div class="container">
+            <div class="col-md-12 ">
+                <div ng-init="home_image = 'assets/images/home_main.jpg'">    
+                    <img ng-src="{{home_image}}" style="opacity: 0.5; z-index: -1;" width="1110" height="370">
+                </div>
+
+                <h2 style="position: absolute;   top: 200px;   left: 200px;    width: 100%;    margin: 0 auto;    width: 3000px;    height: 50px; font-weight: bold; ">WHOLESOME MEALS FROM CHEFS AROUND YOU</h2>
+                
+            </div>
+        </div>
+    </div>
+
+    <div id="advantages">
+        <div class="container"><br><br>
+            <div class="same-height-row">
+                <div class="col-sm-3">
+
+                    <div class="box same-height clickable">
+                        <!-- <div class="icon">
+                        </div> -->                        
+                        <img src="assets/images/1cook.png">
+                        <h4><a href="#" style="color:black;">1.Search</a></h4>
+                        <!-- <p>We are known to provide best possible service ever</p> -->
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="box same-height clickable">
+                        <!-- <div class="icon">
+                        </div> -->
+                        <img src="assets/images/2place.png">
+                        <h4><a href="#" style="color:black;">2.Place Your Order</a></h4>
+                        <!-- <p>You can check that the height of the boxes adjust when longer text like this one is used in one of them.</p> -->
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="box same-height clickable">
+                        <!-- <div class="icon"></div> -->
+                        <img src="assets/images/payment.png">
+                        <h4><a href="#" style="color:black;">3.Decide Payment</a></h4>
+                        <!-- <p>Free returns on everything for 3 months.</p> -->
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="box same-height clickable">
+                        <div class="icon">
+                        </div>
+                        <img src="assets/images//payment.png">
+                        <h4><a href="#" style="color:black;">4.Receive Payment</a></h4>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+
+        </div><!-- /.container -->
+    </div>
+
+</div>
+   
+<div class="same-height-row">
+    <div class="col-md-6 ">
+        <div class="box same-height clickable">                  
+            <h3><a href="#" style="text-align:center" >LUNCH</a></h3>
+            <!-- <p>We are known to provide best possible service ever</p> -->
+        </div>
+    </div>
+
+    <div class="col-md-6 ">
+        <div class="box same-height clickable">                    
+            <h3><a href="#" style="text-align:center">DINNER</a></h3>
+            
+        </div>
+    </div>
+
+</div> 
+
+  
+
+ 
+
+ <div class="container">
+        <div class="row">
+            <div ng-repeat="offer in $ctrl.cookoffers">
+                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                    <a class="thumbnail" href="#">
+                        <button type="button"  ng-click="$ctrl.viewOffer(offer)"><img class="img-responsive" ng-src="http://127.0.0.1:9000/files?{{offer.dishimage}}" alt="" ></button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Thumbnail Gallery</h1>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="assets/images/home_main.jpg" alt="">
+                </a>
+            </div>
+        </div>
+    </div> -->
+
+
+
