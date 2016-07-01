@@ -67,19 +67,24 @@ angular.module('foodmingleApp')
         controller: 'OrdersCtrl',
         controllerAs: 'vm',
         authenticate: "customer" 
+      })
+      .state('updateoffer', {
+        url: '/update',
+        templateUrl: 'app/account/getoffer/updateoffer.html',
+        params:      {'offer_id': null,
+                      'dishname':null,
+                      'pricedish':null,
+                      'email':null,
+                      'date_time':null,
+                      'quantity':null,
+                      'address':null,
+                      'dishimage':null,
+                      'active':null},
+        controller: 'GetoffersCtrl',
+        controllerAs: 'vm',
+        authenticate: "cook" 
       });
-  //     params: {
-  //   'referer': 'some default', 
-  //   'param2': 'some default', 
-  //   'etc': 'some default'
-  // }
-      // .state('orders', {
-      //   url: '/orders',
-      //   templateUrl: 'app/account/postoffer/postoffer.html',
-      //   controller: 'GetoffersCtrl',
-      //   controllerAs: 'vm',
-      //   authenticate: true
-      // });
+ 
   })
   .run(function($rootScope) {
     $rootScope.$on('$stateChangeStart', function(event, next, nextParams, current) {

@@ -17,6 +17,7 @@
         <td>{{cookoffer.address}}</td>
         <td>{{cookoffer.date_time}}</td>
         <td>
+          <button class="btn btn-success" ng-click="vm.editOffer($index)">Edit</button> |
           <button class="btn btn-danger" ng-click="vm.deleteOffer($index)">Delete</button>
         </td>
       </tr>
