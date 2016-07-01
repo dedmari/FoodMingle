@@ -9,9 +9,10 @@ class GetoffersCtrl{
     this.Auth = Auth;
     this.multipartForm=multipartForm;
     var cookId = Auth.getCurrentUser()._id;
-    this.$http.get('/api/cookoffers/'+ cookId)
+    this.$http.get('/api/cookoffers/'+ cookId+'/offers')
    .then(response => {
-          this.$scope.cookId = response.data;          
+          console.log(response.data);
+          this.$scope.cookoffers = response.data;          
         });
   }
 

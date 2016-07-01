@@ -82,12 +82,18 @@ function handleError(res, statusCode) {
 
 // Gets a list of Cookoffers
 export function index(req, res) {
-    console.log("ïn cookoffer backend");
   return Cookoffer.find().exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
+// Gets a list of Offers of a Cook
+export function showCookOffers(req, res) {
+  console.log("in offers of a cook");
+  return Cookoffer.find().exec()
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
 // Gets a single Cookoffer from the DB
 export function show(req, res) {
   return Cookoffer.findById(req.params.id).exec()
