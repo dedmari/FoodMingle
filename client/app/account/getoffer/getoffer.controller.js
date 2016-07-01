@@ -8,11 +8,21 @@ class GetoffersCtrl{
     this.$scope       = $scope;   
     this.Auth = Auth;
     this.multipartForm=multipartForm;
+    this.$scope.submit = false;
+    this.$scope.update = false;
     var cookId = Auth.getCurrentUser()._id;
     if(!(this.$stateParams.offer_id)){
+      this.$scope.submit = true;
       this.$http.get('/api/cookoffers/'+ cookId+'/offers')
       .then(response => {
           this.$scope.cookoffers = response.data;          
+        });
+    }
+    else {
+      this.$scope.update = true;
+      this.$http.get('/api/cookoffers/'+ this.$stateParams.offer_id)
+        .then(response => {
+          this.$scope.Offer = response.data;
         });
     }
   }
@@ -28,20 +38,14 @@ class GetoffersCtrl{
 
   editOffer(index){     
     this.$state.go('updateoffer', 
-          { 'offer_id': this.$scope.cookoffers[index]._id,
-          'dishname':this.$scope.cookoffers[index].dishname,
-          'pricedish':this.$scope.cookoffers[index].pricedish,
-          'email':this.$scope.cookoffers[index].email,
-          'offer_date':this.$scope.cookoffers[index].offer_date,
-          'quantity':this.$scope.cookoffers[index].quantity,
-          'address':this.$scope.cookoffers[index].address,
-          'dishimage':this.$scope.cookoffers[index].dishimage,
-          'active':this.$scope.cookoffers[index].active });
+          { 'offer_id': this.$scope.cookoffers[index]._id});
   }
 
   updateOffer(){
-
     
+    var uploadUrl = '/api/cookoffers/'+this.$scope.Offer._id;
+      this.$scope.Offer.cookId = this.Auth.getCurrentUser()._id;
+      this.multipartForm.put(uploadUrl, this.$scope.Offer)
 
   }
   addNewOffer(){

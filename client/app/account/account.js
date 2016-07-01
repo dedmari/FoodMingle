@@ -70,16 +70,8 @@ angular.module('foodmingleApp')
       })
       .state('updateoffer', {
         url: '/update',
-        templateUrl: 'app/account/getoffer/updateoffer.html',
-        params:      {'offer_id': null,
-                      'dishname':null,
-                      'pricedish':null,
-                      'email':null,
-                      'date_time':null,
-                      'quantity':null,
-                      'address':null,
-                      'dishimage':null,
-                      'active':null},
+        templateUrl: 'app/account/postoffer/postoffer.html',
+        params:      {'offer_id': null},
         controller: 'GetoffersCtrl',
         controllerAs: 'vm',
         authenticate: "cook" 

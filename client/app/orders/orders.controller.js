@@ -5,7 +5,6 @@ class OrdersCtrl {
       this.$stateParams = $stateParams;
       this.$scope       = $scope;
       var offer_id     = this.$stateParams.offer_id;
-     
       this.$http.get('/api/cookoffers/'+ offer_id)
         .then(response => {
           this.$scope.offer_id = response.data;
