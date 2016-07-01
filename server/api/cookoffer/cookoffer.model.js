@@ -14,7 +14,10 @@ var CookofferSchema = new mongoose.Schema({
   quantity: String,
   address: String,
   dishimage: String,
-  active: Boolean
+  status: {
+        type: String, 
+        default: 'active'
+    }
 });
 
 export default mongoose.model('Cookoffer', CookofferSchema);
