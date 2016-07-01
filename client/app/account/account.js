@@ -36,21 +36,21 @@ angular.module('foodmingleApp')
         templateUrl: 'app/account/cookaccount/cookaccount.html',
         controller: 'CookaccountController',
         controllerAs: 'vm',
-        authenticate: true
+        authenticate: "cook"
       })
       .state('postoffer', {
         url: '/postoffer',
         templateUrl: 'app/account/postoffer/postoffer.html',
         controller: 'GetoffersCtrl',
         controllerAs: 'vm',
-        authenticate: true
+        authenticate: "cook"
       })
       .state('getoffers', {
         url: '/getoffers',
         templateUrl: 'app/account/getoffer/getoffer.html',
         controller: 'GetoffersCtrl',
         controllerAs: 'vm',
-        authenticate: true
+        authenticate: "cook"
       })
       .state('offerinfo', {
         url: '/offerinfo?offer_id',
@@ -66,8 +66,7 @@ angular.module('foodmingleApp')
                       'active':null},
         controller: 'OrdersCtrl',
         controllerAs: 'vm',
-        authenticate: true,
-        access: 'admin' 
+        authenticate: "customer" 
       });
   //     params: {
   //   'referer': 'some default', 
