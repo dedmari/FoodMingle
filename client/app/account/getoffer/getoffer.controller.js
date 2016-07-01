@@ -24,9 +24,8 @@ class GetoffersCtrl{
     }
 
   addNewOffer(){
-      console.log(this.Auth.getCurrentUser().name);
       var uploadUrl = '/api/cookoffers';
-      $scope.Offer.cookId = this.Auth.getCurrentUser()._id;
+      this.$scope.Offer.cookId = this.Auth.getCurrentUser()._id;
       this.multipartForm.post(uploadUrl, this.$scope.Offer)
     }
   } 
