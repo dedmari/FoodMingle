@@ -172,6 +172,14 @@
         return Auth.hasRole.apply(Auth, [].concat.apply(['admin'], arguments));
       },
 
+      isCook() {
+        return Auth.hasRole.apply(Auth, [].concat.apply(['cook'], arguments));
+      },
+
+      isCustomer() {
+        return Auth.hasRole.apply(Auth, [].concat.apply(['customer'], arguments));
+      },
+
       /**
        * Get auth token
        *
