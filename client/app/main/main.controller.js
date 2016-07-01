@@ -4,15 +4,11 @@
 
   class MainController {
 
-    constructor($http, $scope,  $state, socket) {
-      this.$http = $http;
-      this.socket = socket;
-      this.awesomeThings = [];
-      this.$state = $state;
-
-      $scope.$on('$destroy', function() {
-        socket.unsyncUpdates('thing');
-      });
+    constructor($http, $scope,  $state, socket,Auth) {
+      this.$http    = $http;
+      this.socket   = socket;
+      this.$state   = $state;
+      this.isCook   = Auth.isCook;
     }
 
     $onInit() {
@@ -36,18 +32,6 @@
             'active':offer.active });
     }
 
-    addThing() {
-      if (this.newThing) {
-        this.$http.post('/api/things', {
-          name: this.newThing
-        });
-        this.newThing = '';
-      }
-    }
-
-    deleteThing(thing) {
-      this.$http.delete('/api/things/' + thing._id);
-    }
   }
 
   angular.module('foodmingleApp')
