@@ -2,13 +2,13 @@
   <h1>My Order</h1>
   <div class= "row">
     <div class=" col-md-6">
-      <img  ng-src="http://127.0.0.1:9000/files?{{offer_id.dishimage}}" height = "500px" width = "500px">
+      <img  ng-src="http://127.0.0.1:9000/files?{{order.dishimage}}" height = "500px" width = "500px">
     </div>
       <div class=" col-md-6">        
-        <h3>Dish Name - {{offer_id.dishname}}</h3>
-        <h3>Price of Dish - {{offer_id.pricedish}}</h3>
-        <h3>Quantity - {{offer_id.quantity}}</h3>
-        <h3>Date and Time - {{offer_id.date_time}}</h3>
+        <h3>Dish Name - {{order.dishname}}</h3>
+        <h3>Price of Dish - {{order.pricedish}}</h3>
+        <h3>Quantity - {{order.quantity}}</h3>
+        <h3>Date and Time - {{order.date_time}}</h3>
         <button type="submit" class="btn btn-info btn-lg success" ng-click="vm.addNewOrder()">Order</button>
       </div>
     </div>         

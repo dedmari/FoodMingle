@@ -7,8 +7,6 @@ angular.module('foodmingleApp')
 		var fd = new FormData();
 
 		for(var key in data){
-			// console.log("key in multipartiservice");
-			// console.log(data[key]);
 			fd.append(key, data[key]);
 		}
 		$http.post(uploadUrl, fd, {

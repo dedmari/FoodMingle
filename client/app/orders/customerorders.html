@@ -1,0 +1,25 @@
+<div class="col-md-12">
+  <h1>My Offers</h1>
+  <table class="table table-striped">
+    <thead>
+      <th>Dish Name</th>
+      <th>Price of Dish</th>
+      <th>Quantity</th>
+      <th>Address</th>
+      <th>Date and Time</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="order in Orders">
+        <td>{{order.dishname}}</td>
+        <td>{{order.pricedish}}</td>
+        <td>{{order.quantity}}</td>
+        <td>{{order.address}}</td>
+        <td>{{order.date_time}}</td>
+        <td>
+          <button class="btn btn-danger" ng-click="vm.deleteOffer($index)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

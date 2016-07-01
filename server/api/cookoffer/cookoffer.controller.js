@@ -113,10 +113,6 @@ export function update(req, res) {
   upload(req,res,function(err){
           var offerAttr = req.body;
           offerAttr.dishimage = req.file.filename;
-          console.log('in update  ');
-          console.log(offerAttr);
-          console.log('------------ ');
-          console.log(req.params.id);
            if (offerAttr._id) {
             delete offerAttr._id;
           }

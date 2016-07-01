@@ -1,7 +1,7 @@
 'use strict';
 
 class GetoffersCtrl{
-  constructor($http, $scope,  $state, $stateParams,multipartForm ,Auth) {
+  constructor($http, $scope,  $state, $stateParams,multipartForm , Auth) {
     this.$http        = $http;
     this.$state       = $state;
     this.$stateParams = $stateParams;

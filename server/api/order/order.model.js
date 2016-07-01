@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 
 
 var OrderSchema = new mongoose.Schema({
+  customer_id: String,
   offer_id: String,
   dishname: String,
   pricedish: String,
