@@ -89,8 +89,7 @@ export function index(req, res) {
 
 // Gets a list of Offers of a Cook
 export function showCookOffers(req, res) {
-  console.log("in offers of a cook");
-  return Cookoffer.find().exec()
+  return Cookoffer.find({cookId:req.params.id}).exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
