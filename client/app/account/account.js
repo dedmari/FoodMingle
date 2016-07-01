@@ -75,6 +75,20 @@ angular.module('foodmingleApp')
         controller: 'GetoffersCtrl',
         controllerAs: 'vm',
         authenticate: "cook" 
+      })
+      .state('cus-account', {
+        url: '/cus-account',
+        templateUrl: 'app/orders/customeraccount.html',
+        controller: 'OrdersCtrl',
+        controllerAs: 'vm',
+        authenticate: "customer"
+      })
+      .state('getorders', {
+        url: '/my-orders',
+        templateUrl: 'app/orders/customerorders.html',
+        controller: 'OrdersCtrl',
+        controllerAs: 'vm',
+        authenticate: "customer"
       });
  
   })
