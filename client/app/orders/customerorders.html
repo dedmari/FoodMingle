@@ -6,6 +6,7 @@
       <th>Price of Dish</th>
       <th>Quantity</th>
       <th>Address</th>
+      <th>Email</th>
       <th>Date and Time</th>
       <th>Action</th>
     </thead>
@@ -15,6 +16,7 @@
         <td>{{order.pricedish}}</td>
         <td>{{order.quantity}}</td>
         <td>{{order.address}}</td>
+        <td>{{order.email}}</td>
         <td>{{order.date_time}}</td>
         <td>
           <button class="btn btn-danger" ng-click="vm.deleteOffer($index)">Delete</button>

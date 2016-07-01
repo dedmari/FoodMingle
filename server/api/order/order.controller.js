@@ -66,6 +66,12 @@ export function index(req, res) {
     .catch(handleError(res));
 }
 
+// Gets a list of Offers of a Cook
+export function showCustomerOrders(req, res) {
+  return Order.find({customer_id:req.params.id}).exec()
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
 // Gets a single Order from the DB
 export function show(req, res) {
   return Order.findById(req.params.id).exec()

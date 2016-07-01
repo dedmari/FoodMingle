@@ -13,7 +13,7 @@ class OrdersCtrl {
           });
       }
       else {
-        this.$http.get('/api/orders/'+ this.customerId)
+        this.$http.get('/api/orders/'+ this.customerId+'/customeroffers')
           .then(response => {
             this.$scope.Orders = response.data;
           });
@@ -25,7 +25,10 @@ class OrdersCtrl {
         var orderUrl                  = '/api/orders';
         this.$scope.order.offer_id    =  this.offer_id;
         this.$scope.order.customer_id =  this.customerId;
-        this.$http.post(orderUrl, this.$scope.order);
+        console.log(this.$scope.order);
+        this.$http.post(orderUrl, this.$scope.order).then(response => {
+            console.log(response);
+          });
         this.$state.go('main');
     }
 
