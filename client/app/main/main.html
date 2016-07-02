@@ -1,6 +1,9 @@
 <div id="all">
     <div id="content">
         <div class="container">
+            <div style = "align:center" class = "col-md-12">
+                <p class="alert alert-success text-center" >{{ $ctrl.message }}</p>
+            </div>
             <div class="col-md-12 ">
                 <div ng-init="home_image = 'assets/images/home_main.jpg'">    
                     <img ng-src="{{home_image}}" style="opacity: 0.5; z-index: -1;" width="1110" height="370">

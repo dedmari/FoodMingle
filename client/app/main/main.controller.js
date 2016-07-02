@@ -4,11 +4,14 @@
 
   class MainController {
 
-    constructor($http, $scope,  $state, socket,Auth) {
-      this.$http    = $http;
-      this.socket   = socket;
-      this.$state   = $state;
-      this.isCook   = Auth.isCook;
+    constructor($http, $scope,  $state, socket,Auth, $stateParams) {
+      this.$http        = $http;
+      this.socket       = socket;
+      this.$state       = $state;
+      this.$scope       = $scope;
+      this.isCook       = Auth.isCook;
+      this.$stateParams = $stateParams;
+      this.message      = this.$stateParams.message;
     }
 
     $onInit() {
