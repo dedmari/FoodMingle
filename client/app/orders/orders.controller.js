@@ -25,6 +25,7 @@ class OrdersCtrl {
         var orderUrl                  = '/api/orders';
         this.$scope.order.offer_id    =  this.offer_id;
         this.$scope.order.customer_id =  this.customerId;
+        this.$scope.order.status      =  'ordered';
         this.$http.post(orderUrl, this.$scope.order).then(response => {
           this.$state.go('main');
           });   
