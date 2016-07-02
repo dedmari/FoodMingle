@@ -22,7 +22,8 @@ angular.module('foodmingleApp')
         url: '/signup',
         templateUrl: 'app/account/signup/signup.html',
         controller: 'SignupController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        
       })
       .state('settings', {
         url: '/settings',

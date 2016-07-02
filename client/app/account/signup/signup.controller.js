@@ -3,16 +3,20 @@
 class SignupController {
   //end-non-standard
 
-  constructor(Auth, $state) {
+  constructor(Auth, $state,$scope) {
       this.Auth = Auth;
       this.$state = $state;
+           
     }
     //start-non-standard
 
 
   register(form) {
     this.submitted = true;
-
+    this.back = true;
+    // if(back){
+    //   $scope.backstretch = { options: { fade: 750, bodyBackground: false }, images: [ "../../assets/images/1.png" ] };
+    // }
     if (form.$valid) {
       this.Auth.createUser({
           name:     this.user.name,
