@@ -12,6 +12,12 @@
       this.isCook       = Auth.isCook;
       this.$stateParams = $stateParams;
       this.message      = this.$stateParams.message;
+      this.msgStatus    = false;
+
+      if(this.message){
+        this.msgStatus = true;
+      }
+
     }
 
     $onInit() {
