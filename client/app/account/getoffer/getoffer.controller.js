@@ -53,6 +53,19 @@ class GetoffersCtrl{
       this.$scope.Offer.cookId = this.Auth.getCurrentUser()._id;
       this.multipartForm.post(uploadUrl, this.$scope.Offer)
     }
+
+    isOrdered(offerStatus)
+    {
+        if (offerStatus == 'ordered')
+        {
+          return true;
+        }
+        else {
+          return false;
+        }
+    }
   } 
+
+
   angular.module('foodmingleApp')
   .controller('GetoffersCtrl', GetoffersCtrl);

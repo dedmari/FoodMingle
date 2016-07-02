@@ -31,12 +31,12 @@ class OrdersCtrl {
           });   
     }
 
-    deleteOrder(index){        
-      this.$http.delete('/api/orders/' + this.$scope.Orders[index]._id)
+    deleteOrder(index){
+    var offer = {offer_id: this.$scope.Orders[index].offer_id };     
+      this.$http.delete('/api/orders/' + this.$scope.Orders[index]._id +'/'+this.$scope.Orders[index].offer_id,offer)
         .then(response => {
           this.$scope.Orders.splice(index, 1);
         });
-      
     }
 
 }

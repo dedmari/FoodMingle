@@ -110,6 +110,11 @@ export function update(req, res) {
 
 // Deletes a Order from the DB
 export function destroy(req, res) {
+  console.log(req.params.offer_id);
+  var offer_up = {status: 'active'};
+  Offer.findById(req.params.offer_id).exec()
+    .then(saveUpdates(offer_up));
+    
   return Order.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
