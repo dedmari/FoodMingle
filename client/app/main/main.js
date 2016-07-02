@@ -5,6 +5,6 @@ angular.module('foodmingleApp')
     $stateProvider.state('main', {
       url: '/',
       template: '<main></main>',
-      params:      {'message': null}
+      params:      {'message': null,'status':null}
     });
   });

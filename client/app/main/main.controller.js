@@ -5,17 +5,26 @@
   class MainController {
 
     constructor($http, $scope,  $state, socket,Auth, $stateParams) {
-      this.$http        = $http;
-      this.socket       = socket;
-      this.$state       = $state;
-      this.$scope       = $scope;
-      this.isCook       = Auth.isCook;
-      this.$stateParams = $stateParams;
-      this.message      = this.$stateParams.message;
-      this.msgStatus    = false;
+      this.$http          = $http;
+      this.socket         = socket;
+      this.$state         = $state;
+      this.$scope         = $scope;
+      this.isCook         = Auth.isCook;
+      this.userName       = Auth.getCurrentUser().name;
+      this.$stateParams   = $stateParams;
+      this.message        = this.$stateParams.message;
+      this.mainStatus     = this.$stateParams.status;
+      this.msgLogin       = false;
+      this.msgLogout      = false;
 
       if(this.message){
-        this.msgStatus = true;
+        if (this.mainStatus == 'login'){
+          this.msgLogin = true;
+          this.message += this.userName;
+        }
+        else{
+          this.msgLogout = true;
+        }
       }
 
     }

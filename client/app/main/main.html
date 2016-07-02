@@ -1,8 +1,11 @@
 <div id="all">
     <div id="content">
         <div class="container">
-            <div ng-show ="$ctrl.msgStatus" style = "align:center" class = "col-md-12">
+            <div ng-show ="$ctrl.msgLogin" style = "align:center" class = "col-md-12">
                 <p class="alert alert-success text-center" >{{ $ctrl.message }}</p>
+            </div>
+            <div ng-show ="$ctrl.msgLogout" style = "align:center" class = "col-md-12">
+                <p class="alert alert-danger text-center" >{{ $ctrl.message }}</p>
             </div>
             <div class="col-md-12 ">
                 <div ng-init="home_image = 'assets/images/home_main.jpg'">    
