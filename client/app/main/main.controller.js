@@ -4,11 +4,32 @@
 
   class MainController {
 
-    constructor($http, $scope,  $state, socket,Auth) {
-      this.$http    = $http;
-      this.socket   = socket;
-      this.$state   = $state;
-      this.isCook   = Auth.isCook;
+    constructor($http, $scope,  $state, socket,Auth, $stateParams) {
+      this.$http          = $http;
+      this.socket         = socket;
+      this.$state         = $state;
+      this.$scope         = $scope;
+      this.isCook         = Auth.isCook;
+      this.userName       = Auth.getCurrentUser().name;
+      this.$stateParams   = $stateParams;
+      this.message        = this.$stateParams.message;
+      this.mainStatus     = this.$stateParams.status;
+      this.msgLogin       = false;
+      this.msgLogout      = false;
+
+      if(this.message){
+        if (this.mainStatus == 'login'){
+          this.msgLogin = true;
+          this.message += this.userName;
+        }
+        else if (this.mainStatus == 'offer'){
+          this.msgLogin = true;
+        }
+        else{
+          this.msgLogout = true;
+        }
+      }
+
     }
 
     $onInit() {

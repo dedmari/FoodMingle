@@ -11,7 +11,7 @@
 
 import _ from 'lodash';
 import Order from './order.model';
-
+import Offer from '../cookoffer/cookoffer.model';
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
   return function(entity) {
@@ -54,6 +54,7 @@ function handleEntityNotFound(res) {
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
+  console.log('in handleError');
   return function(err) {
     res.status(statusCode).send(err);
   };
@@ -82,6 +83,14 @@ export function show(req, res) {
 
 // Creates a new Order in the DB
 export function create(req, res) {
+
+  var upres;
+  console.log(req.body);
+  //updating cookoffer status to ordered
+  Offer.findById(req.body.offer_id).exec()
+    .then(saveUpdates(req.body));
+
+  // creating the order
   return Order.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
@@ -101,6 +110,11 @@ export function update(req, res) {
 
 // Deletes a Order from the DB
 export function destroy(req, res) {
+  console.log(req.params.offer_id);
+  var offer_up = {status: 'active'};
+  Offer.findById(req.params.offer_id).exec()
+    .then(saveUpdates(offer_up));
+    
   return Order.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))

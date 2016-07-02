@@ -2,7 +2,7 @@
     <div id="top">
         <div class="container">
             <div class="col-md-6 offer" data-animate="fadeInDown">
-                <a href="#" class="btn btn-success btn-sm" data-animate-hover="shake">Offer of the day</a>
+                <a ui-sref="main" class="btn btn-success btn-sm" data-animate-hover="shake">Offer of the day</a>
                 &nbsp;| &nbsp; 
                 <a href="#">REFER &amp; EARN</a>
                 
@@ -13,8 +13,8 @@
                     </li>
                     <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">SIGN UP</a>
                     </li>
-                    <li ng-show="nav.isCook()" ui-sref-active="active"><a ui-sref="c-account"> HELLO {{ nav.getCurrentUser().name }}</a> </li>
-                    <li ng-hide="nav.isCook()" ui-sref-active="active"><a ui-sref="cus-account"> HELLO {{ nav.getCurrentUser().name }}</a> </li>
+                    <li ng-show="nav.isCook() && nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="c-account"> HELLO {{ nav.getCurrentUser().name }}</a> </li>
+                    <li ng-hide="nav.isCook() || !(nav.isLoggedIn())" ui-sref-active="active"><a ui-sref="cus-account"> HELLO {{ nav.getCurrentUser().name }}</a> </li>
                     <li ng-show="nav.isLoggedIn()"><a ui-sref="logout">LOGOUT</a></li>
                     <li><a href="#">CONTACT US</a>
                     </li>                

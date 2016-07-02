@@ -77,7 +77,7 @@ function handleError(res, statusCode) {
 
 // Gets a list of Cookoffers
 export function index(req, res) {
-  return Cookoffer.find().exec()
+  return Cookoffer.find({status:'active'}).exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }

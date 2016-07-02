@@ -15,7 +15,7 @@ angular.module('foodmingleApp')
         controller: function($state, Auth) {
           var referrer = $state.params.referrer || $state.current.referrer || 'main';
           Auth.logout();
-          $state.go(referrer);
+          $state.go(referrer,{'message':' You are Logged Out !!!','status':'logout'});
         }
       })
       .state('signup', {

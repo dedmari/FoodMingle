@@ -25,17 +25,18 @@ class OrdersCtrl {
         var orderUrl                  = '/api/orders';
         this.$scope.order.offer_id    =  this.offer_id;
         this.$scope.order.customer_id =  this.customerId;
+        this.$scope.order.status      =  'ordered';
         this.$http.post(orderUrl, this.$scope.order).then(response => {
           this.$state.go('main');
           });   
     }
 
-    deleteOrder(index){        
-      this.$http.delete('/api/orders/' + this.$scope.Orders[index]._id)
+    deleteOrder(index){
+    var offer = {offer_id: this.$scope.Orders[index].offer_id };     
+      this.$http.delete('/api/orders/' + this.$scope.Orders[index]._id +'/'+this.$scope.Orders[index].offer_id,offer)
         .then(response => {
           this.$scope.Orders.splice(index, 1);
         });
-      
     }
 
 }

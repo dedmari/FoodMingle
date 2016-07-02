@@ -2,23 +2,28 @@
   <h1>My Offers</h1>
   <table class="table table-striped">
     <thead>
-      <th>Dish Name</th>
-      <th>Price of Dish</th>
-      <th>Quantity</th>
-      <th>Address</th>
-      <th>Date and Time</th>
-      <th>Action</th>
+      <th class="text-center">Dish Name</th>
+      <th class="text-center">Price of Dish</th>
+      <th class="text-center">Quantity</th>
+      <th class="text-center">Address</th>
+      <th class="text-center">Date and Time</th>
+      <th class="text-center">Status</th>
+      <th class="text-center">Action</th>
     </thead>
     <tbody>
       <tr ng-repeat="cookoffer in cookoffers">
-        <td>{{cookoffer.dishname}}</td>
-        <td>{{cookoffer.pricedish}}</td>
-        <td>{{cookoffer.quantity}}</td>
-        <td>{{cookoffer.address}}</td>
-        <td>{{cookoffer.date_time}}</td>
-        <td>
-          <button class="btn btn-success" ng-click="vm.editOffer($index)">Edit</button> |
-          <button class="btn btn-danger" ng-click="vm.deleteOffer($index)">Delete</button>
+        <td class="text-center">{{cookoffer.dishname}}</td>
+        <td class="text-center">{{cookoffer.pricedish}}</td>
+        <td class="text-center">{{cookoffer.quantity}}</td>
+        <td class="text-center">{{cookoffer.address}}</td>
+        <td class="text-center">{{cookoffer.date_time}}</td>
+        <td class="text-center">{{cookoffer.status}}</td>
+        <td ng-hide="vm.isOrdered(cookoffer.status)">
+          <button  class="btn btn-success" ng-click="vm.editOffer($index)">Edit</button> |
+          <button  class="btn btn-danger" ng-click="vm.deleteOffer($index)">Delete</button>
+        </td>
+        <td ng-show="vm.isOrdered(cookoffer.status)">
+          <p class="bg-danger col-md-9">Can't delete or edit offer(already ordered)</p>
         </td>
       </tr>
     </tbody>
