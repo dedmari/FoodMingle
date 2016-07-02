@@ -22,6 +22,9 @@
           this.msgLogin = true;
           this.message += this.userName;
         }
+        else if (this.mainStatus == 'offer'){
+          this.msgLogin = true;
+        }
         else{
           this.msgLogout = true;
         }

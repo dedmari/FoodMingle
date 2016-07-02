@@ -45,13 +45,15 @@ class GetoffersCtrl{
     
     var uploadUrl = '/api/cookoffers/'+this.$scope.Offer._id;
       this.$scope.Offer.cookId = this.Auth.getCurrentUser()._id;
-      this.multipartForm.put(uploadUrl, this.$scope.Offer)
+      this.multipartForm.put(uploadUrl, this.$scope.Offer);
+      this.$state.go('main',{'message':'Offer Updated Successfully', 'status':'offer'});
 
   }
   addNewOffer(){
       var uploadUrl = '/api/cookoffers';
       this.$scope.Offer.cookId = this.Auth.getCurrentUser()._id;
-      this.multipartForm.post(uploadUrl, this.$scope.Offer)
+      this.multipartForm.post(uploadUrl, this.$scope.Offer);
+      this.$state.go('main',{'message':'Offer Placed Successfully', 'status':'offer'});
     }
 
     isOrdered(offerStatus)

@@ -6,7 +6,6 @@ class PostofferController {
     this.Auth = Auth;
   }
   	post(form) {
-  		alert( this.Auth);
   	}
 }
 
