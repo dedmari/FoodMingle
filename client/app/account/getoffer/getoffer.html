@@ -1,3 +1,6 @@
+<div ng-show ="offerDeleted" style = "align:center" class = "col-md-12">
+  <p class="alert alert-danger text-center" >Offer Deleted Successfully</p>
+</div>
 <div class="col-md-12">
   <h1>My Offers</h1>
   <table class="table table-striped">
@@ -20,7 +23,7 @@
         <td class="text-center">{{cookoffer.status}}</td>
         <td ng-hide="vm.isOrdered(cookoffer.status)">
           <button  class="btn btn-success" ng-click="vm.editOffer($index)">Edit</button> |
-          <button  class="btn btn-danger" ng-click="vm.deleteOffer($index)">Delete</button>
+          <button  class="btn btn-danger" ng-click="vm.deleteOffer($index)" confirm-click="Are you sure you want to delete this offer?">Delete</button>
         </td>
         <td ng-show="vm.isOrdered(cookoffer.status)">
           <p class="bg-danger col-md-9">Can't delete or edit offer(already ordered)</p>

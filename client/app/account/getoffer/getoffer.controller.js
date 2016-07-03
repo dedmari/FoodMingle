@@ -2,14 +2,15 @@
 
 class GetoffersCtrl{
   constructor($http, $scope,  $state, $stateParams,multipartForm , Auth) {
-    this.$http        = $http;
-    this.$state       = $state;
-    this.$stateParams = $stateParams;
-    this.$scope       = $scope;   
-    this.Auth = Auth;
-    this.multipartForm=multipartForm;
-    this.$scope.submit = false;
-    this.$scope.update = false;
+    this.$http                = $http;
+    this.$state               = $state;
+    this.$stateParams         = $stateParams;
+    this.$scope               = $scope;   
+    this.Auth                 = Auth;
+    this.multipartForm        = multipartForm;
+    this.$scope.submit        = false;
+    this.$scope.update        = false;
+    this.$scope.offerDeleted  = false;
     var cookId = Auth.getCurrentUser()._id;
     if(!(this.$stateParams.offer_id)){
       this.$scope.submit = true;
@@ -31,6 +32,8 @@ class GetoffersCtrl{
   deleteOffer(index){        
     this.$http.delete('/api/cookoffers/' + this.$scope.cookoffers[index]._id)
       .then(response => {
+        this.$scope.offerDeleted = true;
+        console.log(this.$scope.offerDeleted);
         this.$scope.cookoffers.splice(index, 1);
       });
       
@@ -56,17 +59,17 @@ class GetoffersCtrl{
       this.$state.go('main',{'message':'Offer Placed Successfully', 'status':'offer'});
     }
 
-    isOrdered(offerStatus)
-    {
-        if (offerStatus == 'ordered')
-        {
-          return true;
-        }
-        else {
-          return false;
-        }
-    }
-  } 
+  isOrdered(offerStatus)
+  {
+      if (offerStatus == 'ordered')
+      {
+        return true;
+      }
+      else {
+        return false;
+      }
+  }
+} 
 
 
   angular.module('foodmingleApp')

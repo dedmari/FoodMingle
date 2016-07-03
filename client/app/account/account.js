@@ -89,6 +89,14 @@ angular.module('foodmingleApp')
         controller: 'OrdersCtrl',
         controllerAs: 'vm',
         authenticate: "customer"
+      })
+      .state('payment', {
+        url: '/payment',
+        templateUrl: 'app/orders/payment.html',
+        params:      {'offer_id': null},
+        controller: 'OrdersCtrl',
+        controllerAs: 'vm',
+        authenticate: "customer"
       });
  
   })
