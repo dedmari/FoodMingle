@@ -68,7 +68,7 @@
    
 <div ng-hide="$ctrl.isCook()" class="container">
     <div class="row">
-        <div ng-repeat="offer in $ctrl.cookoffers">
+        <div ng-repeat="offer in $ctrl.cookoffers | limitTo:8">
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                 <a class="thumbnail" href="#">
                     <button type="button"  ng-click="$ctrl.viewOffer(offer)"><img class="img-responsive" ng-src="http://127.0.0.1:9000/files?{{offer.dishimage}}" alt="" ></button>
