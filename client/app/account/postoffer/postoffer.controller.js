@@ -4,6 +4,7 @@ class PostofferController {
 
   constructor(Auth) {
     this.Auth = Auth;
+    
   }
   	post(form) {
   		alert( this.Auth);

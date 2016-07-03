@@ -4,7 +4,8 @@ html,body
     height: 100%;
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden;    
+    overflow-x: hidden;  
+    overflow-y: auto;  
 }
 a,
 button {
@@ -903,6 +904,7 @@ h1 {
   font-weight: 300;
 }
 #footer {
+
   background: #e0e0e0;
   padding: 20px 0;
 }
@@ -1094,7 +1096,7 @@ h1 {
 .navbar {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
  /* min-height: 70px;*/
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   border: none;
   border-bottom: 1px solid transparent;
 }

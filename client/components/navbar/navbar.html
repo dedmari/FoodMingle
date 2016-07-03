@@ -9,8 +9,8 @@
                 <a href="#">REFER &amp; EARN</a>                
             </div>
 
-            <div class= "col-xs-8 navbar-brand">             
-            </div>
+            <a ui-sref="main"><div class= "col-xs-8 navbar-brand">             
+            </div></a>
             <div class="row">
             <div class="col-md-4 col-md-push-2" data-animate="fadeInDown" style="width:40%">
                 <ul class="menu">
@@ -20,11 +20,11 @@
                     </li>
                     <li ng-show="nav.isLoggedIn()"><a ui-sref="logout">LOGOUT</a></li>
                     <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="c-account"> HELLO {{ nav.getCurrentUser().name }}</a> </li>
-                    <li><a href="#">CONTACT US</a>
-                    </li>                
+                     <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="contactus">CONTACT US</a>
+                    </li>           
                 </ul>
             </div>
-        <div class = "col-md-4 col-md-pull-2"  style ="color:#fff;font-weight:bold;right:18%;margin-top:-5px">FOODMINGLE </div> 
+        <div class = "col-md-4 col-md-pull-2"  style ="color:#fff;font-weight:bold;right:18%;margin-top:-5px"><a ui-sref="main">FOODMINGLE </a></div> 
         </div>
     </div>
    

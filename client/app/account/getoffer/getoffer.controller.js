@@ -10,6 +10,7 @@ class GetoffersCtrl{
     this.multipartForm=multipartForm;
     this.$scope.submit = false;
     this.$scope.update = false;
+    this.$scope.date = new Date();
     var cookId = Auth.getCurrentUser()._id;
     if(!(this.$stateParams.offer_id)){
       this.$scope.submit = true;

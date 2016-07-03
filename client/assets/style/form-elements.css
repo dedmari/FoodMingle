@@ -1,5 +1,5 @@
 
-input[type="text"], input[type="email"], input[type="file"],select.form-control,input[type="password"],textarea, 
+input[type="text"], input[type="email"], input[type="file"],input[type="file" i],select.form-control,input[type="password"],textarea, 
 textarea.form-control {
 	height: 50px;
     margin: 0;
@@ -29,6 +29,7 @@ select.form-control :focus,
 input[type="password"] :focus,
 input[type="email"]:focus, 
 input[type="file"]:focus,
+input[type="file" i]:focus,
 textarea:focus, 
 textarea.form-control:focus {
 	outline: 0;
@@ -37,15 +38,15 @@ textarea.form-control:focus {
     -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
 }
 
-input[type="text"],input[type="email"],input[type="file"],select.form-control,input[type="password"]:-moz-placeholder, textarea:-moz-placeholder, textarea.form-control:-moz-placeholder { color: #888; }
-input[type="text"],input[type="email"],input[type="file"],select.form-control,input[type="password"]:-ms-input-placeholder, textarea:-ms-input-placeholder, textarea.form-control:-ms-input-placeholder { color: #888; }
-input[type="text"],input[type="email"],input[type="file"],select.form-control,input[type="password"]:-webkit-input-placeholder, textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeholder { color: #888; }
+input[type="text"],input[type="email"],input[type="file"],input[type="file" i],select.form-control,input[type="password"]:-moz-placeholder, textarea:-moz-placeholder, textarea.form-control:-moz-placeholder { color: #888; }
+input[type="text"],input[type="email"],input[type="file"],input[type="file" i],select.form-control,input[type="password"]:-ms-input-placeholder, textarea:-ms-input-placeholder, textarea.form-control:-ms-input-placeholder { color: #888; }
+input[type="text"],input[type="email"],input[type="file"],input[type="file" i],select.form-control,input[type="password"]:-webkit-input-placeholder, textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeholder { color: #888; }
 
 
 
 button.btn,button.btn a,button.btn a:hover {
     text-decoration: none;
-	height: 50px;
+	height: 40px;
     margin: 0;
     padding: 0 20px;
     vertical-align: middle;
