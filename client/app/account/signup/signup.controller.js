@@ -42,6 +42,7 @@ class SignupController {
     if (form.$valid) {
       this.Auth.updateProfile(this.user.name, this.user.email , this.user.role)
         .then(() => {
+          this.Auth.logout();
           this.$state.go('main',{'message':'Profile Updated Successfully', 'status':'offer'});
         })
         .catch(err => {
