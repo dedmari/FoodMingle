@@ -99,6 +99,31 @@ export function changePassword(req, res, next) {
 }
 
 /**
+ * Update Profile
+ */
+export function updateProfile(req, res, next) {
+  var userId  = req.user._id;
+  var name = String(req.body.name);
+  var email = String(req.body.email);
+  var role = String(req.body.role);
+  console.log('on server');
+  console.log(name);
+  return User.findById(userId).exec()
+    .then(user => {
+      
+        user.name  = name;
+        user.email = email;
+        user.role  = role;
+        return user.save()
+          .then(() => {
+            res.status(204).end();
+          })
+          .catch(validationError(res));
+       
+    });
+}
+
+/**
  * Get my info
  */
 export function me(req, res, next) {

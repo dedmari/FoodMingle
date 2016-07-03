@@ -71,6 +71,20 @@
           .$promise;
       },
 
+      updateProfile(upname, upemail, uprole, callback) {
+
+        return User.updateProfile({
+            id: currentUser._id
+          }, {
+            name:  upname,
+            email: upemail,
+            role:  uprole, 
+          }, function(err) {
+            return safeCb(callback)(err);
+          })
+          .$promise;
+      },
+
       /**
        * Change password
        *
