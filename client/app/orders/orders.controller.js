@@ -1,11 +1,12 @@
 class OrdersCtrl {
   constructor($http, $scope,  $state, $stateParams, Auth) {
-      this.$http        = $http;
-      this.$state       = $state;
-      this.$stateParams = $stateParams;
-      this.$scope       = $scope;
-      this.offer_id     = this.$stateParams.offer_id;
-      this.customerId   = Auth.getCurrentUser()._id;
+      this.$http                = $http;
+      this.$state               = $state;
+      this.$stateParams         = $stateParams;
+      this.$scope               = $scope;
+      this.offer_id             = this.$stateParams.offer_id;
+      this.customerId           = Auth.getCurrentUser()._id;
+      this.$scope.orderDeleted  = false;
       if(this.offer_id) {
         this.$http.get('/api/cookoffers/'+ this.offer_id)
           .then(response => {
@@ -36,6 +37,7 @@ class OrdersCtrl {
     var offer = {offer_id: this.$scope.Orders[index].offer_id };     
       this.$http.delete('/api/orders/' + this.$scope.Orders[index]._id +'/'+this.$scope.Orders[index].offer_id,offer)
         .then(response => {
+          this.$scope.orderDeleted  = true;
           this.$scope.Orders.splice(index, 1);
         });
     }

@@ -33,7 +33,6 @@ class GetoffersCtrl{
     this.$http.delete('/api/cookoffers/' + this.$scope.cookoffers[index]._id)
       .then(response => {
         this.$scope.offerDeleted = true;
-        console.log(this.$scope.offerDeleted);
         this.$scope.cookoffers.splice(index, 1);
       });
       
