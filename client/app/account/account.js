@@ -104,6 +104,12 @@ angular.module('foodmingleApp')
         controller: 'OrdersCtrl',
         controllerAs: 'vm',
         authenticate: "customer"
+      })
+      .state('contactus', {
+        url: '/contactus',
+        templateUrl: 'app/account/contactus/contactus.html',
+        controller: 'ContactusController',
+        controllerAs: 'vm'
       });
  
   })

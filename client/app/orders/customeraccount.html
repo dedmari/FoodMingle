@@ -1,16 +1,45 @@
-<div>
+<div class="container">
+	<div class = "breadcrumbs">
+	    <a ui-sref = "main">Home</a> &nbsp;&gt;&nbsp;
+	    <a ui-sref = "cus-account">Account</a>&nbsp;   
+	  </div>
 
 	<h2  align="center">ACCOUNT</h2>
 	<br><br><br><br><br>
-		<div class="col-sm-4 text-center"> 
-	 	 <a href="profile" class="btn btn-default btn-lg">PROFILE</a>
-	  	</div>
-	  	<div class="col-sm-4 text-center"> 
-	  		<a ui-sref="postorder" class="btn btn-info btn-lg">POST ORDER</a>
-	  	</div>
-	  	<div class="col-sm-4 text-center"> 
-	  		<a ui-sref="getorders" class="btn btn-default btn-lg">ORDERS HISTORY</a>
-	  	</div>
+	<div class="container">
+		<div class="same-height-row">
+			<div class="  col-sm-3  col-sm-offset-1 btn btn-default">
+	        	<a ui-sref="profile" >
+	             
+	                <!-- <div class="icon">
+	                </div> -->                        
+	                <img src="../../assets/images/profile1.png">
+	                <h4>PROFILE</h4>
+	            </a>
+		                        <!-- <p>We are known to provide best possible service ever</p> -->
+		    </div>
+		    <div class=" col-sm-3 col-sm-offset-1 btn btn-default">
+	        	<a ui-sref="postorder" >
+	             
+	                <!-- <div class="icon">
+	                </div> -->                        
+	                <img src="../../assets/images/order.jpg">
+	                <h4>POST ORDER</h4></a>
+	                <!-- <p>We are known to provide best possible service ever</p> -->
+		    </div>
+		    <div class="col-sm-3 col-sm-offset-1 btn btn-default ">
+				<a ui-sref="getorders" >  
+	        
+	            <!-- <div class="icon">
+	            </div> -->                        
+	            <img src="../../assets/images/history-512.png">
+	            <h4>ORDER HISTORY</h4>
+	            <!-- <p>We are known to provide best possible service ever</p> -->
+	        </a>
+		    </div>
+		</div>
+	</div>
+	  	
 
 
 	<br><br>

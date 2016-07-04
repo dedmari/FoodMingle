@@ -4,8 +4,8 @@ html,body
     height: 100%;
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden; 
-    
+    overflow-x: hidden;  
+    overflow-y: auto;  
 }
 a,
 button {
@@ -904,6 +904,7 @@ h1 {
   font-weight: 300;
 }
 #footer {
+
   background: #e0e0e0;
   padding: 20px 0;
 }
@@ -1094,8 +1095,8 @@ h1 {
 /* navbar */
 .navbar {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
-  min-height: 70px;
-  margin-bottom: 30px;
+ /* min-height: 70px;*/
+  margin-bottom: 20px;
   border: none;
   border-bottom: 1px solid transparent;
 }
@@ -1160,7 +1161,7 @@ h1 {
   padding: 10px 15px;
   font-size: 18px;
   line-height: 20px;
-  height: 70px;
+  /*height: 70px;*/
   vertical-align: middle;
   display: inline-block;
 }
@@ -1354,12 +1355,12 @@ body {
   background-color: #f0f0f0;
 }
 a {
-  color: #4fbfa8;
+  color : #333;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #348e7b;
+  color: #bf99ba;
   text-decoration: underline;
 }
 a:focus {

@@ -1,68 +1,91 @@
-<h1 ng-show="submit" align="center">POST YOUR OFFER</h1>
-<h1 ng-show="update" align="center">UPDATE  OFFER</h1>
-<br><br><br>
-<form class="form-horizontal" name="form">
-  <div class="form-group">
-    <label class="control-label col-sm-4" for="name"><b>Name of Dish:</b></label>
-    <div class="col-sm-6">
-      <input type="text" class="form-control" name="name" placeholder="Enter name of Dish" ng-model = "Offer.dishname">
-    </div>
-  </div>
-  <div class="form-group">
-    <label class="control-label col-sm-4" for="name"><b>Price of Dish</b></label>
-    <div class="col-sm-6">
-      <input type="text" class="form-control" name="price_dish" placeholder="Enter the price of dish" ng-model="Offer.pricedish">
-    </div>
-  </div>
 
-  <div class="form-group">
-    <label class="control-label col-sm-4" for="address"><b>Address:</b></label>
-    <div class="col-sm-6">
-      <input type="text" class="form-control" name="address" placeholder="Enter your address" ng-model="Offer.address">
-    </div>
+<div class="container" >
+  <div class = "breadcrumbs">
+    <a ui-sref = "main">Home</a> &nbsp;&gt;&nbsp;
+    <a ui-sref = "c-account">Account</a>&nbsp;&gt;&nbsp;
+    <a href = "#">Post Offer</a>
   </div>
+  <div class="col-sm-6 box col-sm-offset-3 form-box" style= "margin-left:25%">                        
+ 
+        <div class="form-top-left">
+          <h1 ng-show="submit" align="center" style="opacity:1;">POST YOUR OFFER</h1> 
+          <h1 ng-show="update" align="center" style=" opacity:1;">UPDATE YOUR OFFER</h1>
+        </div>
+     
+      <div class="form-top-right">
+          <img src = "../../assets/images/fm.png" >
+        </div>
+      
+     <div class="form-bottom">
+    <form class="form-horizontal" name="form" style="opacity: 1">
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="name"><b>Name of Dish:</b></label>
+        <div class="col-xs-6">
+          <input type="text" class="form-control col-sm-4" name="name" placeholder="Enter name of Dish" ng-model = "Offer.dishname">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="name"><b>Price of Dish</b></label>
+        <div class="col-xs-6">
+          <input type="text" class="form-control" name="price_dish" placeholder="Enter the price of dish" ng-model="Offer.pricedish">
+        </div>
+      </div>
 
-  <div class="form-group" >
-    <label class="control-label col-sm-4" for="email"><b>Email:</b></label>
-    <div class="col-sm-6">
-      <input type="email" class="form-control" name="email" placeholder="Enter email" ng-model="Offer.email">
-    </div>
-  </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="address"><b>Address:</b></label>
+        <div class="col-xs-6">
+          <input type="text" class="form-control" name="address" placeholder="Enter your address" ng-model="Offer.address">
+        </div>
+      </div>
 
-  <div class="form-group">
-    <label class="control-label col-sm-4" for="date_posted"><b>Date and Time to pick up:</b></label>
-    <div class="col-sm-6"> 
-      <div class="input-append date form_datetime">
-        <input size="16" type="text" value="" class="form-control" name="date_posted" placeholder="Enter date of pickup" ng-model="Offer.date_time">
-          <span class="add-on"><i class="icon-th"></i></span>
+      <div class="form-group" >
+        <label class="control-label col-sm-4" for="email"><b>Email:</b></label>
+        <div class="col-xs-6">
+          <input type="email" class="form-control" name="email" placeholder="Enter email" ng-model="Offer.email">
+        </div>
+      </div>
+
+      <div class="form-group">     
+        <label class="control-label col-sm-4" for="date_posted"><b>Date:</b></label>
+          <div class="col-xs-6"> 
+                
+            <input size="16" type="datetime-local" value="" class="form-control" name="date_time" placeholder="Enter date of pickup" ng-model="Offer.date_time"  required/>   
+              <span class="add-on"><i class="icon-th"></i></span>
+                 
+        </div>       
+      </div>
+
+       <div class="form-group">
+        <label class="control-label col-sm-4" for="quantity"><b>Quantity</b></label>
+        <div class="col-xs-6"> 
+          <input type="text" class="form-control" name="quantity" placeholder="Enter Quantity" ng-model="Offer.quantity">
+        </div>
       </div>
       
-  </div>
-   
-  </div>
-   <div class="form-group">
-    <label class="control-label col-sm-4" for="quantity"><b>Quantity</b></label>
-    <div class="col-sm-6"> 
-      <input type="text" class="form-control" name="quantity" placeholder="Enter Quantity" ng-model="Offer.quantity">
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="image" ><b>Upload Image</b></label>
+        <div class="col-xs-6"> 
+          <input type="file" class="form-control" name="password" placeholder="Enter password"  file-upload="Offer.file" required/ >
+        </div>
+      </div>
+      <div ng-show="submit" class="form-group"> 
+        <div class=" col-sm-3">
+          <button  type="submit" class="btn btn-inverse btn-lg btn-register" ng-click="vm.addNewOffer()">Submit</button>
+        </div>
+      
+      
+        <div ng-show="update" class=" col-sm-3">
+          <button type="submit" class="btn btn-inverse btn-lg btn-register" ng-click="vm.updateOffer()">Update</button>
+        </div>
+      
+      </div>
+
+    </form>
+
     </div>
-  </div>
-  <div class="form-group">
-    <label class="control-label col-sm-4" for="image"><b>Upload Image</b></label>
-    <div class="col-sm-6"> 
-      <input type="file" class="form-control" name="password" placeholder="Enter password" file-upload="Offer.file">
-    </div>
-  </div>
-  <div ng-show="submit" Offerclass="form-group"> 
-    <div class="col-sm-offset-9 col-sm-3">
-      <button type="submit" class="btn btn-success" ng-click="vm.addNewOffer()">Submit</button>
-    </div>
-  
-  </div>
-  <div ng-show="update" Offerclass="form-group"> 
-    <div class="col-sm-offset-9 col-sm-3">
-      <button type="submit" class="btn btn-danger" ng-click="vm.updateOffer()">Update</button>
-    </div>
-  
   </div>
 
-</form>
+</div>
+
+
+  

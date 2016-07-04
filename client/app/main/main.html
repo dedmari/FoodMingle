@@ -1,6 +1,7 @@
 <div id="all">
     <div id="content">
         <div class="container">
+            <div class = "breadcrumbs"><a ui-sref = "main">Home</a></div>
             <div ng-show ="$ctrl.msgLogin" style = "align:center" class = "col-md-12">
                 <p class="alert alert-success text-center" >{{ $ctrl.message }}</p>
             </div>
@@ -12,8 +13,7 @@
                     <img ng-src="{{home_image}}" style="opacity: 0.5; z-index: -1;" width="1110" height="370">
                 </div>
 
-                <h2 style="position: absolute;   top: 200px;   left: 200px;    width: 100%;    margin: 0 auto;    width: 3000px;    height: 50px; font-weight: bold; ">WHOLESOME MEALS FROM CHEFS AROUND YOU</h2>
-                
+                <h2 style="position: absolute;   top: 200px;   left: 50px;    width: 100%;    margin: 0 auto;    width: 1000px;    height: 50px; font-weight:400; ">WHOLESOME MEALS FROM CHEFS AROUND YOU</h2>
             </div>
         </div>
     </div>
@@ -46,16 +46,15 @@
                     <div class="box same-height clickable">
                         <!-- <div class="icon"></div> -->
                         <img src="assets/images/payment.png">
-                        <h4><a href="#" style="color:black;">3.Decide Payment</a></h4>
+                        <h4><a href="#" style="color:black;">3.Pay</a></h4>
                         <!-- <p>Free returns on everything for 3 months.</p> -->
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="box same-height clickable">
-                        <div class="icon">
-                        </div>
-                        <img src="assets/images//payment.png">
-                        <h4><a href="#" style="color:black;">4.Receive Payment</a></h4>
+                        
+                        <img src="assets/images/enjoy.png">
+                        <h4><a href="#" style="color:black;">4.Enjoy</a></h4>
                     </div>
                 </div>
             </div>
@@ -67,17 +66,21 @@
 </div>
    
 <div ng-hide="$ctrl.isCook()" class="container">
+    <div class="same-height-row">
+    <div class="col-md-12 ">
+        <div class="box same-height clickable">                  
+            <h3 align="center" >ENJOY THE LATEST OFFERS  !!</h3>
+        </div>
+    </div>
+    </div>
     <div class="row">
-        <div ng-repeat="offer in $ctrl.cookoffers | limitTo:8">
+        <div ng-repeat="offer in $ctrl.cookoffers">
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                 <a class="thumbnail" href="#">
                     <button type="button"  ng-click="$ctrl.viewOffer(offer)"><img class="img-responsive" ng-src="http://127.0.0.1:9000/files?{{offer.dishimage}}" alt="" ></button>
+                    {{offer.dishname}}<br>Price : {{offer.pricedish}}
                 </a>
             </div>
         </div>
     </div>
 </div>
-
-
-
-

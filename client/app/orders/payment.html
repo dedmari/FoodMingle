@@ -1,32 +1,46 @@
 <div class="container">
-    <div class="col-sm-6">
+    <div class = "breadcrumbs">
+        <a ui-sref = "main">Home</a> &nbsp;&gt;&nbsp;
+        <a ui-sref = "c-account">Orders</a>&nbsp;&gt;&nbsp;
+        <a href = "#">Payment</a>
+  </div>
+  <div class="col-sm-6 box col-sm-offset-3 form-box" style= "margin-left:25%; text-align:left;">
+    
         <fieldset>
-            <legend>Payment</legend>
+            <div class="form-top-left">
+                <h1  align="center" style="opacity:1;"><legend>PAYMENT</legend></h1>          
+            </div>
+     
+      <div class="form-top-right">
+          <img src = "../../assets/images/fm.png" >
+        </div>
+    
+        
             <div class="control-group">
                 <label label-default="" class="control-label">Card Holder's Name</label>
                 <div class="controls">
-                    <input type="text" class="form-control" pattern="\w+ \w+.*" title="First and last name" required="">
+                    <input type="text" class="form-control" pattern="\w+ \w+.*" title="First and last name" required>
                 </div>
-            </div>
+            </div><br><br>
             <div class="control-group">
                 <label label-default="" class="control-label">Card Number</label>
                 <div class="controls">
                     <div class="row">
                         <div class="col-md-3">
-                            <input type="text" class="form-control" autocomplete="off" maxlength="4" pattern="\d{4}" title="First four digits" required="">
+                            <input type="text" class="form-control" autocomplete="off" maxlength="4" pattern="\d{4}" title="First four digits" required>
                         </div>
                         <div class="col-md-3">
-                            <input type="text" class="form-control" autocomplete="off" maxlength="4" pattern="\d{4}" title="Second four digits" required="">
+                            <input type="text" class="form-control" autocomplete="off" maxlength="4" pattern="\d{4}" title="Second four digits" required>
                         </div>
                         <div class="col-md-3">
-                            <input type="text" class="form-control" autocomplete="off" maxlength="4" pattern="\d{4}" title="Third four digits" required="">
+                            <input type="text" class="form-control" autocomplete="off" maxlength="4" pattern="\d{4}" title="Third four digits" required>
                         </div>
                         <div class="col-md-3">
-                            <input type="text" class="form-control" autocomplete="off" maxlength="4" pattern="\d{4}" title="Fourth four digits" required="">
+                            <input type="text" class="form-control" autocomplete="off" maxlength="4" pattern="\d{4}" title="Fourth four digits" required>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div><br><br>
             <div class="control-group">
                 <label label-default="" class="control-label">Card Expiry Date</label>
                 <div class="controls">
@@ -62,18 +76,18 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div><br><br>
             <div class="control-group">
                 <label label-default="" class="control-label">Card CVV</label>
                 <div class="controls">
                     <div class="row">
                         <div class="col-md-3">
-                            <input type="text" class="form-control" autocomplete="off" maxlength="3" pattern="\d{3}" title="Three digits at back of your card" required="">
+                            <input type="text" class="form-control" autocomplete="off" maxlength="3" pattern="\d{3}" title="Three digits at back of your card" required>
                         </div>
                         <div class="col-md-8"></div>
                     </div>
                 </div>
-            </div>
+            </div><br>
             <div class="control-group">
               <label label-default="" class="control-label"></label>
               <div class="controls">
@@ -84,4 +98,3 @@
         </fieldset>
     </div>
 </div>
-<hr>

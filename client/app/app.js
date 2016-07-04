@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('foodmingleApp', ['foodmingleApp.auth', 'foodmingleApp.admin',
-    'foodmingleApp.constants', 'ngCookies', 'ngResource', 'ngSanitize', 'btford.socket-io',
+    'foodmingleApp.constants', 'ngCookies', 'ngResource', 'ngSanitize', 'btford.socket-io','ng-backstretch',
     'ui.router', 'ui.bootstrap', 'validation.match'
   ])
   .config(function($urlRouterProvider, $locationProvider) {
