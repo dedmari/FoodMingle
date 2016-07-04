@@ -1,7 +1,7 @@
 'use strict';
 
 class GetoffersCtrl{
-  constructor($http, $scope,  $state, $stateParams,multipartForm , Auth) {
+  constructor($http, $scope,  $state, $stateParams,multipartForm , Auth, moment) {
     this.$http                = $http;
     this.$state               = $state;
     this.$stateParams         = $stateParams;
@@ -21,9 +21,14 @@ class GetoffersCtrl{
     }
     else {
       this.$scope.update = true;
+      // this.$scope.date = new moment();
+      //console.log(this.$scope.date);
       this.$http.get('/api/cookoffers/'+ this.$stateParams.offer_id)
         .then(response => {
           this.$scope.Offer = response.data;
+          this.$scope.Offer.date_time = moment(this.$scope.Offer.date_time).format();
+          this.$scope.Offer.date_time = new Date(this.$scope.Offer.date_time);
+          console.log(this.$scope.Offer.date_time);
         });
     }
   }
