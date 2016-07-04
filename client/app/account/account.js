@@ -26,7 +26,7 @@ angular.module('foodmingleApp')
       })
       .state('settings', {
         url: '/settings',
-        templateUrl: 'app/account/signup/updateProfile.html',
+        templateUrl: 'app/account/settings/settings.html',
         controller: 'SettingsController',
         controllerAs: 'vm',
         authenticate: true
