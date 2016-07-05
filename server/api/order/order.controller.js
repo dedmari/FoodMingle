@@ -101,16 +101,20 @@ export function update(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
+  var offer_up = {status: 'completed'};
+  Offer.findById(req.params.offer_id).exec()
+    .then(saveUpdates(offer_up));
+
+  var update = {status : 'completed'};
   return Order.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
-    .then(saveUpdates(req.body))
+    .then(saveUpdates(update))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
 // Deletes a Order from the DB
 export function destroy(req, res) {
-  console.log(req.params.offer_id);
   var offer_up = {status: 'active'};
   Offer.findById(req.params.offer_id).exec()
     .then(saveUpdates(offer_up));

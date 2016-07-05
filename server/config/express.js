@@ -57,10 +57,7 @@ export default function(app) {
       var str = req.url;
       var re = str.split("?");
       var upFolder = "./uploads/";
-      var upFile = upFolder.concat(re[1]).toString();
-     console.log("-----------------------------------------");
-       console.log(upFile);
-       console.log("-----------------------------------------"); 
+      var upFile = upFolder.concat(re[1]).toString(); 
 
       // console.log(upFolder);
 

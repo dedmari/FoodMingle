@@ -1,28 +1,35 @@
 <div ng-show ="orderDeleted" style = "align:center" class = "col-md-12">
-  <p class="alert alert-danger text-center" >Order Deleted Successfully</p>
+  <p class="alert alert-danger text-center" >Order Cancelled Successfully</p>
+</div>
+<div ng-show ="orderCompleted" style = "align:center" class = "col-md-12">
+  <p class="alert alert-success text-center" >Order Completed</p>
 </div>
 <div class="col-md-12">
-  <h1>My Offers</h1>
+  <h1>My Orders</h1>
   <table class="table table-striped">
     <thead>
-      <th>Dish Name</th>
-      <th>Price of Dish</th>
-      <th>Quantity</th>
-      <th>Address</th>
-      <th>Email</th>
-      <th>Date and Time</th>
-      <th>Action</th>
+      <th class="text-center">Dish Name</th>
+      <th class="text-center">Price of Dish</th>
+      <th class="text-center">Quantity</th>
+      <th class="text-center">Address</th>
+      <th class="text-center">Email</th>
+      <th class="text-center">Date and Time</th>
+      <th class="text-center">Action</th>
     </thead>
     <tbody>
       <tr ng-repeat="order in Orders">
-        <td>{{order.dishname}}</td>
-        <td>{{order.pricedish}}</td>
-        <td>{{order.quantity}}</td>
-        <td>{{order.address}}</td>
-        <td>{{order.email}}</td>
-        <td>{{order.date_time}}</td>
-        <td>
+        <td class="text-center">{{order.dishname}}</td>
+        <td class="text-center">{{order.pricedish}}</td>
+        <td class="text-center">{{order.quantity}}</td>
+        <td class="text-center">{{order.address}}</td>
+        <td class="text-center">{{order.email}}</td>
+        <td class="text-center">{{order.date_time}}</td>
+        <td ng-show="vm.isOrdered(order.status)" class="text-center">
+          <button class="btn btn-success" ng-click="vm.completeOrder($index)">Complete</button> |
           <button class="btn btn-danger" ng-click="vm.deleteOrder($index)">Cancel</button>
+        </td>
+        <td ng-hide="vm.isOrdered(order.status)" class="text-center">
+          <p align="center" class="bg-success col-md-9">Can't cancel order(already completed)</p>
         </td>
       </tr>
     </tbody>

@@ -21,14 +21,11 @@ class GetoffersCtrl{
     }
     else {
       this.$scope.update = true;
-      // this.$scope.date = new moment();
-      //console.log(this.$scope.date);
       this.$http.get('/api/cookoffers/'+ this.$stateParams.offer_id)
         .then(response => {
           this.$scope.Offer = response.data;
           this.$scope.Offer.date_time = moment(this.$scope.Offer.date_time).format();
           this.$scope.Offer.date_time = new Date(this.$scope.Offer.date_time);
-          console.log(this.$scope.Offer.date_time);
         });
     }
   }
@@ -66,6 +63,16 @@ class GetoffersCtrl{
   isOrdered(offerStatus)
   {
       if (offerStatus == 'ordered')
+      {
+        return true;
+      }
+      else {
+        return false;
+      }
+  }
+  isCompleted(offerStatus)
+  {
+      if (offerStatus == 'completed')
       {
         return true;
       }

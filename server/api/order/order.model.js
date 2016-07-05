@@ -18,8 +18,12 @@ var OrderSchema = new mongoose.Schema({
   date_offer: Date,
   payment_status: {
         type: String, 
-        default: 'complete'
-    }
+        default: 'completed'
+    },
+  status: {
+      type: String, 
+      default: 'ordered'
+  }
 });
 
 

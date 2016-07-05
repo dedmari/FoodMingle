@@ -7,6 +7,7 @@ class OrdersCtrl {
       this.offer_id             = this.$stateParams.offer_id;
       this.customerId           = Auth.getCurrentUser()._id;
       this.$scope.orderDeleted  = false;
+      this.$scope.orderCompleted= false;
       if(this.offer_id) {
         this.$http.get('/api/cookoffers/'+ this.offer_id)
           .then(response => {
@@ -41,6 +42,27 @@ class OrdersCtrl {
           this.$scope.Orders.splice(index, 1);
         });
     }
+
+    completeOrder(index){
+    var offer = {offer_id: this.$scope.Orders[index].offer_id };     
+      this.$http.put('/api/orders/' + this.$scope.Orders[index]._id)
+        .then(response => {
+          this.$scope.orderCompleted  = true;
+          this.$scope.Orders[index].status = "completed";
+        });
+    }
+
+  isOrdered(orderStatus)
+  {
+      console.log(orderStatus)
+      if (orderStatus == 'ordered')
+      {
+        return true;
+      }
+      else {
+        return false;
+      }
+  }
 
 }
 
