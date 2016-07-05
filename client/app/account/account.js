@@ -132,6 +132,14 @@ angular.module('foodmingleApp')
         controller: 'VoucherController',
         controllerAs: 'vm',
         authenticate: "admin"
+      })
+      .state('updateVoucher', {
+        url: '/updateVoucher',
+        params:      {'voucher_id': null},
+        templateUrl: 'app/account/voucher/addVoucher.html',
+        controller: 'VoucherController',
+        controllerAs: 'vm',
+        authenticate: "admin"
       });
  
   })

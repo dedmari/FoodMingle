@@ -109,11 +109,19 @@ export function update(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
-  return Voucher.findById(req.params.id).exec()
-    .then(handleEntityNotFound(res))
-    .then(saveUpdates(req.body))
-    .then(respondWithResult(res))
-    .catch(handleError(res));
+
+    upload(req,res,function(err){
+          var voucherAttr = req.body;
+          voucherAttr.voucherImage = req.file.filename;
+           if (voucherAttr._id) {
+            delete voucherAttr._id;
+          }
+          return Voucher.findById(req.params.id).exec()
+            .then(handleEntityNotFound(res))
+            .then(saveUpdates(voucherAttr))
+            .then(respondWithResult(res))
+            .catch(handleError(res));
+  });
 }
 
 // Deletes a Voucher from the DB

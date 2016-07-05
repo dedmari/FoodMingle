@@ -12,11 +12,26 @@ class VoucherController {
     this.moment         		= moment;
     this.$scope.offerAdded      = false;
     this.$stateParams           = $stateParams;
-    this.$http.get('/api/vouchers/')
+    this.$scope.submit 			= false;
+    this.$scope.update 			= false;
+    if(!(this.$stateParams.voucher_id)){
+      this.$scope.submit = true;
+      this.$http.get('/api/vouchers/')
         .then(response => {
           this.$scope.Vouchers = response.data;
           this.$scope.Vouchers.validTill = moment(this.$scope.Vouchers.validTill).format('LLL');
         });
+    }
+    else {
+      	this.$scope.update = true;
+      	this.$http.get('/api/vouchers/'+ this.$stateParams.voucher_id)
+        .then(response => {
+          this.$scope.Voucher 			= response.data;
+          this.$scope.Voucher.validTill = moment(this.$scope.Voucher.validTill).format();
+          this.$scope.Voucher.validTill = new Date(this.$scope.Voucher.validTill);
+        });
+    }
+    
   }
 
 
@@ -26,12 +41,15 @@ class VoucherController {
     this.$state.go('main',{'message':'Voucher Added Successfully', 'status':'offer'});
   }
 
+  editVoucher(index){     
+    this.$state.go('updateVoucher', 
+          { 'voucher_id': this.$scope.Vouchers[index]._id});
+  }
   updateVoucher(){
     
-    var uploadUrl = '/api/vouchers/'+this.$scope.Offer._id;
-      this.$scope.Offer.cookId = this.Auth.getCurrentUser()._id;
-      this.multipartForm.put(uploadUrl, this.$scope.Offer);
-      this.$state.go('main',{'message':'Offer Updated Successfully', 'status':'offer'});
+    var uploadUrl = '/api/vouchers/'+this.$scope.Voucher._id;
+      this.multipartForm.put(uploadUrl, this.$scope.Voucher);
+      this.$state.go('main',{'message':'Voucher Updated Successfully', 'status':'offer'});
 
   }
 
