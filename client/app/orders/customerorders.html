@@ -23,7 +23,7 @@
         <td class="text-center">{{order.quantity}}</td>
         <td class="text-center">{{order.address}}</td>
         <td class="text-center">{{order.email}}</td>
-        <td class="text-center">{{order.date_time}}</td>
+        <td class="text-center">{{vm.convertFormat(order.date_time)}}</td>
         <td ng-show="vm.isOrdered(order.status)" class="text-center">
           <button class="btn btn-success" ng-click="vm.completeOrder($index)">Complete</button> |
           <button class="btn btn-danger" ng-click="vm.deleteOrder($index)">Cancel</button>

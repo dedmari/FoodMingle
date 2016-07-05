@@ -1,11 +1,12 @@
 class OrdersCtrl {
-  constructor($http, $scope,  $state, $stateParams, Auth) {
+  constructor($http, $scope,  $state, $stateParams, Auth, moment) {
       this.$http                = $http;
       this.$state               = $state;
       this.$stateParams         = $stateParams;
       this.$scope               = $scope;
       this.offer_id             = this.$stateParams.offer_id;
       this.customerId           = Auth.getCurrentUser()._id;
+      this.moment               = moment;
       this.$scope.orderDeleted  = false;
       this.$scope.orderCompleted= false;
       if(this.offer_id) {
@@ -63,9 +64,12 @@ class OrdersCtrl {
         return false;
       }
   }
+  convertFormat(date_time){
+    //return date_time;
+    return this.moment(date_time).format('LLL');
+  }
 
 }
-
 
   angular.module('foodmingleApp')
   .controller('OrdersCtrl', OrdersCtrl);
