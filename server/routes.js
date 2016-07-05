@@ -10,6 +10,7 @@ import multer from 'multer';
 
 export default function(app) {
   // Insert routes below
+  app.use('/api/vouchers', require('./api/voucher'));
   app.use('/api/orders', require('./api/order'));
   
   app.use('/api/cookoffers', require('./api/cookoffer'));

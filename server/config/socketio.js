@@ -17,6 +17,7 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/voucher/voucher.socket').register(socket);
   require('../api/order/order.socket').register(socket);
   require('../api/cookoffer/cookoffer.socket').register(socket);
   require('../api/thing/thing.socket').register(socket);

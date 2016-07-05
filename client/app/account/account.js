@@ -110,6 +110,28 @@ angular.module('foodmingleApp')
         templateUrl: 'app/account/contactus/contactus.html',
         controller: 'ContactusController',
         controllerAs: 'vm'
+      })
+      .state('manage', {
+        url: '/manage',
+        templateUrl: 'app/account/voucher/manage.html',
+        controller: 'VoucherController',
+        controllerAs: 'vm',
+        authenticate: "admin"
+      })
+      .state('vouchers', {
+        url: '/vouchers',
+        params:      {'status': null},
+        templateUrl: 'app/account/voucher/voucher.html',
+        controller: 'VoucherController',
+        controllerAs: 'vm',
+        authenticate: "admin"
+      })
+      .state('addVoucher', {
+        url: '/addvoucher',
+        templateUrl: 'app/account/voucher/addVoucher.html',
+        controller: 'VoucherController',
+        controllerAs: 'vm',
+        authenticate: "admin"
       });
  
   })

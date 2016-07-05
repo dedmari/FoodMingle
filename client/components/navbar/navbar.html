@@ -19,8 +19,9 @@
                             </li>
                             <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">SIGN UP</a>
                             </li>
-                            <li ng-show="nav.isCook() && nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="c-account"> HELLO {{ nav.getCurrentUser().name }}</a> </li>
+                            <li ng-hide="nav.isAdmin() || !(nav.isCook())" ui-sref-active="active"><a ui-sref="c-account"> HELLO {{ nav.getCurrentUser().name }}</a> </li>
                             <li ng-hide="nav.isCook() || !(nav.isLoggedIn())" ui-sref-active="active"><a ui-sref="cus-account"> HELLO {{ nav.getCurrentUser().name }}</a> </li>
+                            <li ng-show="nav.isAdmin() && nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="manage"> ADMIN </a> </li>
                             <li ng-show="nav.isLoggedIn()"><a ui-sref="logout">LOGOUT</a></li>
                             <li ui-sref-active="active"><a ui-sref="contactus">CONTACT US</a>
                             </li>                

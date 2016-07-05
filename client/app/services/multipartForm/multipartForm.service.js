@@ -19,6 +19,7 @@ angular.module('foodmingleApp')
 		for(var key in data){
 			fd.append(key, data[key]);
 		}
+		console.log(fd);
 		$http.put(uploadUrl, fd, {
 			transformRequest: angular.indentity,
 			headers: { 'Content-Type': undefined }

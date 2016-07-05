@@ -1,0 +1,36 @@
+<div ng-show ="voucherAdded" style = "align:center" class = "col-md-12">
+  <p class="alert alert-success text-center" >Voucher Added Successfully</p>
+</div>
+<div ng-show ="voucherDeleted" style = "align:center" class = "col-md-12">
+  <p class="alert alert-danger text-center" >Voucher Deleted Successfully</p>
+</div>
+<div class="container">
+	<div class="col-md-12">
+		<div>
+			<h1>VOUCHERS<a ui-sref="addVoucher"><button class="btn btn-info pull-right">ADD</button></a></h1>
+		</div>
+	 
+	  <table class="table table-striped">
+	    <thead>
+	      <th class="text-center">Name</th>
+	      <th class="text-center">Description</th>
+	      <th class="text-center">Valid Till</th>
+	      <th class="text-center">Type</th>
+	      <th class="text-center">Action</th>
+	    </thead>
+	    <tbody>
+	      <tr ng-repeat="Voucher in Vouchers">
+	        <td class="text-center">{{Voucher.name}}</td>
+	        <td class="text-center">{{Voucher.info}}</td>
+	        <td class="text-center">{{vm.convertFormat(Voucher.validTill)}}</td>
+	        <td class="text-center">{{Voucher.type}}</td>
+	        <td>
+	          <button  class="btn btn-success" ng-click="vm.editVoucher($index)">Edit</button> |
+	          <button  class="btn btn-danger" ng-click="vm.deleteVoucher($index)" confirm-click="Are you sure you want to delete this offer?">Delete</button>
+	        </td>
+	      </tr>
+	    </tbody>
+	  </table>
+	</div>
+</div>
+
