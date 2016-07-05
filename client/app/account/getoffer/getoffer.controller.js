@@ -11,6 +11,7 @@ class GetoffersCtrl{
     this.$scope.submit        = false;
     this.$scope.update        = false;
     this.$scope.offerDeleted  = false;
+    this.moment               = moment;
     var cookId = Auth.getCurrentUser()._id;
     if(!(this.$stateParams.offer_id)){
       this.$scope.submit = true;
@@ -79,6 +80,9 @@ class GetoffersCtrl{
       else {
         return false;
       }
+  }
+  convertFormat(date_time){
+    return this.moment(date_time).format('LLL');
   }
 } 
 

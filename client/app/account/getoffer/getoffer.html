@@ -19,7 +19,7 @@
         <td class="text-center">{{cookoffer.pricedish}}</td>
         <td class="text-center">{{cookoffer.quantity}}</td>
         <td class="text-center">{{cookoffer.address}}</td>
-        <td class="text-center">{{cookoffer.date_time}}</td>
+        <td class="text-center">{{vm.convertFormat(cookoffer.date_time)}}</td>
         <td class="text-center">{{cookoffer.status}}</td>
         <td ng-hide="vm.isOrdered(cookoffer.status) || vm.isCompleted(cookoffer.status)">
           <button  class="btn btn-success" ng-click="vm.editOffer($index)">Edit</button> |

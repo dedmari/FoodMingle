@@ -65,7 +65,6 @@ class OrdersCtrl {
       }
   }
   convertFormat(date_time){
-    //return date_time;
     return this.moment(date_time).format('LLL');
   }
 

@@ -9,7 +9,7 @@
         <h3>NAME - {{order.dishname}}</h3>
         <h3>PRICE  - {{order.pricedish}}</h3>
         <h3>SERVES - {{order.quantity}}</h3>
-        <h3>PICK UP DATE-TIME - {{order.date_time}}</h3>
+        <h3>PICK UP DATE-TIME - {{vm.convertFormat(order.date_time)}}</h3>
         <button type="submit" class="btn btn-info btn-lg success" ng-click="vm.addPayment()">Order</button>
       </div>
 
