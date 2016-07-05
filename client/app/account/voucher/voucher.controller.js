@@ -34,7 +34,6 @@ class VoucherController {
     
   }
 
-
   addNewVoucher(){
   	var uploadUrl = '/api/vouchers';
     this.multipartForm.post(uploadUrl, this.$scope.Voucher);
