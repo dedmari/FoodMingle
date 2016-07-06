@@ -41,6 +41,7 @@
     }
 
     viewOffer(offer){
+        console.log(offer);
           this.$state.go('offerinfo', 
             { 'offer_id': offer._id,
             'dishname':offer.dishname,

@@ -1,9 +1,5 @@
 <div backstretch backstretch-images="'../../assets/images/login_back.jpg'">
-<div class="container">
 
-<div class="top-content">
-          
-    <div class="inner-bg">
         <div class="container">
             <div class="row">           
               <div class="col-sm-6 col-sm-offset-3 form-box">                        
@@ -18,24 +14,7 @@
                 </div>
               <div class="form-bottom">
                <form role="form" class="registration-form form" name="form" ng-submit="vm.login(form)" novalidate>
-                    <div class="form-group has-error">
-                    <p class="alert alert-danger " ng-show="form.email.$error.required && form.password.$error.required && vm.submitted">
-                       Please enter your email and password.
-                    </p>
-                    <p class="alert alert-danger " ng-show="form.email.$error.email && vm.submitted">
-                       Please enter a valid email.
-                    </p>
-                    <p class="text-danger">{{ vm.errors.other }}</p>
-                  </div>
-                  <div class="form-group">
-                    <label class="sr-only" >Email</label>
-                    <input type="email" name="form-email" placeholder="EMAIL" class="form-email form-control" id="form-email" ng-model="vm.user.email" required>
-                  </div>
-                  <div class="form-group">
-                    <label class="sr-only" >Password</label>
-                    <input type="password" name="password" placeholder="PASSWORD" class="form-control"  ng-model="vm.user.password" required>
-                  </div>
-                <!--   <div class="form-group has-error">
+                    <!-- <div class="form-group has-error">
                     <p class="alert alert-danger " ng-show="form.email.$error.required && form.password.$error.required && vm.submitted">
                        Please enter your email and password.
                     </p>
@@ -44,18 +23,49 @@
                     </p>
                     <p class="text-danger">{{ vm.errors.other }}</p>
                   </div> -->
+                  <div class="form-group" ng-class="{ 'has-success': form.email.$valid && vm.submitted,
+                                  'has-error': form.email.$invalid && vm.submitted }">
+                    <label class="sr-only" >Email</label>
+                    <input type="email" name="email" placeholder="EMAIL" class="form-email form-control" id="form-email" ng-model="vm.user.email" required mongoose-error/>
+                    <p class="help-block" ng-show="form.email.$error.email && vm.submitted">Doesn't look like a valid email.</p>
+                    <p class="help-block" ng-show="form.email.$error.required && vm.submitted">What's your email address?</p>
+                    <p class="help-block" ng-show="form.email.$error.mongoose">
+                    {{ vm.errors.email }}
+                    </p>
+                  </div>
+                  <div class="form-group" ng-class="{ 'has-success': form.password.$valid && vm.submitted,
+                                            'has-error': form.password.$invalid && vm.submitted }">
+                    <label class="sr-only" >Password</label>
+                    <input type="password" name="password" placeholder="PASSWORD" class="form-control"  ng-model="vm.user.password" required mongoose-error/>
+                    <p class="help-block"
+            ng-show="(form.password.$error.minlength || form.password.$error.required) && vm.submitted">
+            Password must be at least 3 characters.
+          </p>
+          <p class="help-block" ng-show="form.password.$error.mongoose">
+          {{ vm.errors.password }}
+          </p>
+                  </div>
+                  
+                  <div class="form-group has-error">
+                    <p class="alert alert-danger " ng-show="form.email.$error.required && form.password.$error.required && vm.submitted">
+                       Please enter your email and password.
+                    </p>
+                    <p class="alert alert-danger " ng-show="form.email.$error.email && vm.submitted">
+                       Please enter a valid email.
+                    </p>
+                    <p class="text-danger">{{ vm.errors.other }}</p>
+                  </div>
                   <div>
                     <button class="btn btn-inverse btn-lg btn-login" type="submit">
                       Login
                     </button>
-                    <button class="btn btn-inverse btn-lg btn-register" type="submit" >
-                      <a  ui-sref="signup">
+                    <button class="btn btn-inverse btn-lg btn-register" type="submit"><a ui-sref="signup">
                         Register
                       </a>
                     </button>
-                  </div>        
+                  </div>   <br>     
                   <div class="row">
-                    <div class="col-sm-4 col-md-3">
+                    <div class="col-sm-4 col-md-6">
                       <oauth-buttons classes="btn-block"></oauth-buttons>
                     </div>
                   </div>
@@ -67,8 +77,6 @@
       </div>
     </div>
             
-  </div>
-
-</div>
+  
        
-</div>
+<br><br/>

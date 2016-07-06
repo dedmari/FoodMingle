@@ -105,12 +105,6 @@ angular.module('foodmingleApp')
         controllerAs: 'vm',
         authenticate: "customer"
       })
-      .state('contactus', {
-        url: '/contactus',
-        templateUrl: 'app/account/contactus/contactus.html',
-        controller: 'ContactusController',
-        controllerAs: 'vm'
-      })
       .state('manage', {
         url: '/manage',
         templateUrl: 'app/account/voucher/manage.html',
@@ -140,7 +134,47 @@ angular.module('foodmingleApp')
         controller: 'VoucherController',
         controllerAs: 'vm',
         authenticate: "admin"
-      });
+      })
+      .state('getalloffers', {
+        url: '/getalloffers',
+        templateUrl: 'app/account/getoffer/getalloffers.html',
+        controller: 'GetoffersCtrl',
+        controllerAs: 'vm',
+        authenticate: "customer"
+      })
+      .state('faq', {
+        url: '/faq',
+        templateUrl: 'app/account/others/faq.html'
+       
+      })
+      .state('aboutus', {
+        url: '/aboutus',
+        templateUrl: 'app/account/others/aboutus.html'       
+      })
+      .state('termsandcond', {
+        url: '/termsandcond',
+        templateUrl: 'app/account/others/termsandcond.html'       
+      })
+       .state('offeroftheday', {
+        url: '/offeroftheday',
+        templateUrl: 'app/account/others/offeroftheday.html',
+        controller: 'VoucherController',
+        controllerAs: 'vm'      
+      })
+      .state('contactus', {
+        url: '/contactus',
+        templateUrl: 'app/account/others/contactus.html'        
+      })
+      .state('referandearn', {
+        url: '/referandearn',
+        templateUrl: 'app/account/others/referandearn.html'       
+       })
+      .state('normalvouchers', {
+        url: '/normalvouchers',
+        controller: 'VoucherController',
+        controllerAs: 'vm',
+        templateUrl: 'app/account/voucher/normalvouchers.html'       
+       });
  
   })
   .run(function($rootScope) {

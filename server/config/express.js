@@ -64,6 +64,15 @@ export default function(app) {
       res.sendFile(path.resolve(upFile));
     });
 
+    /** API path that will send the the voucher of the day to client */
+    app.get('/filevoucher', function(req, res) {
+      var str = req.url;
+      var re = str.split("?");
+      var upFolder = "./vouchers/";
+      var upFile = upFolder.concat(re[1]).toString(); 
+      res.sendFile(path.resolve(upFile));
+    });
+
   // Persist sessions with MongoStore / sequelizeStore
   // We need to enable sessions for passport-twitter because it's an
   // oauth 1.0 strategy, and Lusca depends on sessions

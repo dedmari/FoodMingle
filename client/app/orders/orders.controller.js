@@ -9,6 +9,15 @@ class OrdersCtrl {
       this.moment               = moment;
       this.$scope.orderDeleted  = false;
       this.$scope.orderCompleted= false;
+      this.$scope.submitted     = false;
+      //this.$scope.allOrder      ={};
+
+      // this.$http.get('/api/orders/')
+      //     .then(response => {
+      //       this.$scope.allOrder = response.data;
+      //       console.log(this.$scope.allOrder);
+      //     });
+      //     console.log("out of get "+ this.$scope.allOrder);
       if(this.offer_id) {
         this.$http.get('/api/cookoffers/'+ this.offer_id)
           .then(response => {
@@ -25,6 +34,14 @@ class OrdersCtrl {
     addPayment(){
          this.$state.go('payment',{offer_id:this.offer_id}); 
     }
+    formSubmitted(form){
+      this.$scope.submitted =true;
+      if (form.$valid) {
+        this.addNewOrder();
+      }
+
+    }
+
     addNewOrder(){
         var orderUrl                  = '/api/orders';
         this.$scope.order.offer_id    =  this.offer_id;
@@ -63,6 +80,26 @@ class OrdersCtrl {
       else {
         return false;
       }
+  }
+  alOrders(){
+    console.log("in alOrdfers");
+    this.$scope.data = this.$http.get('/api/orders/')
+           .then(response => {
+            this.$scope.allOrder = response.data;
+            console.log(response.data);
+            return this.$scope.allOrder;
+           });
+           console.log("after http");
+           return this.$scope.data;
+
+  }
+  userName(customer_id){
+    this.$http.get('/api/users/'+ customer_id)
+          .then(response => {
+            var name = response.data.name;
+            return name;
+          });
+
   }
   convertFormat(date_time){
     return this.moment(date_time).format('LLL');

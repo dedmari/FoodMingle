@@ -1,7 +1,7 @@
 'use strict';
 
 class GetoffersCtrl{
-  constructor($http, $scope,  $state, $stateParams,multipartForm , Auth, moment) {
+  constructor($http, $scope,  $state, $stateParams,multipartForm , Auth, moment, $q) {
     this.$http                = $http;
     this.$state               = $state;
     this.$stateParams         = $stateParams;
@@ -13,6 +13,12 @@ class GetoffersCtrl{
     this.$scope.offerDeleted  = false;
     this.moment               = moment;
     var cookId = Auth.getCurrentUser()._id;
+      this.$http.get('/api/cookoffers/')
+      .then(response => {
+          var defer = $q.defer();
+          this.$scope.cookoffers = response.data;
+          defer.resolve(this.$scope.cookoffers);          
+        });
     if(!(this.$stateParams.offer_id)){
       this.$scope.submit = true;
       this.$http.get('/api/cookoffers/'+ cookId+'/offers')
@@ -46,19 +52,32 @@ class GetoffersCtrl{
           { 'offer_id': this.$scope.cookoffers[index]._id});
   }
 
-  updateOffer(){
-    
+  updateOffer(form){
     var uploadUrl = '/api/cookoffers/'+this.$scope.Offer._id;
+      console.log(uploadUrl);
       this.$scope.Offer.cookId = this.Auth.getCurrentUser()._id;
       this.multipartForm.put(uploadUrl, this.$scope.Offer);
       this.$state.go('main',{'message':'Offer Updated Successfully', 'status':'offer'});
 
   }
-  addNewOffer(){
+  addNewOffer(form){
       var uploadUrl = '/api/cookoffers';
       this.$scope.Offer.cookId = this.Auth.getCurrentUser()._id;
       this.multipartForm.post(uploadUrl, this.$scope.Offer);
       this.$state.go('main',{'message':'Offer Placed Successfully', 'status':'offer'});
+    }
+
+    formSubmitted(form){
+      this.$scope.submitted =true;
+      if (form.$valid) {
+        if (this.$scope.submit == true){
+            this.addNewOffer(form)
+        }
+        else if(this.$scope.update == true){
+          this.updateOffer(form)
+        }
+      }
+
     }
 
   isOrdered(offerStatus)

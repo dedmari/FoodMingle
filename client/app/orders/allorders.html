@@ -1,0 +1,25 @@
+<div class="col-md-12">
+  <h1>All Orders</h1>
+  <table class="table table-striped" ng-init="alOrders=vm.alOrders()">
+    <thead>
+      <th class="text-center">Dish Name</th>
+      <th class="text-center">Price of Dish</th>
+      <th class="text-center">Quantity</th>
+      <th class="text-center">Address</th>
+      <th class="text-center">Email</th>
+      <th class="text-center">Date and Time</th>
+      <th class="text-center">User Name</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="order in alOrders">
+        <td class="text-center">{{order.dishname}}</td>
+        <td class="text-center">{{order.pricedish}}</td>
+        <td class="text-center">{{order.quantity}}</td>
+        <td class="text-center">{{order.address}}</td>
+        <td class="text-center">{{order.email}}</td>
+        <td class="text-center">{{vm.convertFormat(order.date_time)}}</td>
+        <td class="text-center">{{vm.userName(order.customer_id)}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -284,8 +284,8 @@ h1 {
 }
 .box .box-footer {
   background: #f7f7f7;
-  margin: 30px -20px -20px;
-  padding: 20px;
+ /* margin: 30px -20px ;*/
+ /* padding: 20px;*/
   border-top: solid 1px #eeeeee;
 }
 .box .box-footer:before,
@@ -906,7 +906,7 @@ h1 {
 #footer {
 
   background: #e0e0e0;
-  padding: 20px 0;
+ /* padding: 20px 0;*/
 }
 #footer ul {
   padding-left: 0;
@@ -966,7 +966,7 @@ h1 {
   #copyright p {
     float: none !important;
     text-align: center;
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
   }
 }
 #style-switch-button {

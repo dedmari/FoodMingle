@@ -1,4 +1,3 @@
-
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
@@ -6,11 +5,25 @@ body {
     color: #888;
     line-height: 30px;
     text-align: center;
+    margin:0;
+	padding:0;
+	height:100%;
+	flex-direction: column;
+  	min-height: 100vh;
+  	display: flex;
 }
 .container{
 	height:100%;
-}
+	flex: 1;
 
+}
+.footer{
+	flex-shrink: 0;
+	  overflow: hidden;
+}
+.futovac {
+  flex: 1;
+ }
 strong { font-weight: 500; }
 
 .post_offer

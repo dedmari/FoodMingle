@@ -15,32 +15,37 @@
           <img src = "../../assets/images/fm.png" >
         </div>
     
-        
+        <form name="form" ng-submit="vm.formSubmitted(form)" novalidate>
             <div class="control-group">
                 <label label-default="" class="control-label">Card Holder's Name</label>
                 <div class="controls">
-                    <input type="text" class="form-control" pattern="\w+ \w+.*" title="First and last name" required>
+                    <input type="text" name="name" class="form-control" pattern="\w+ \w+.*" title="First and last name" required>
                 </div>
-            </div><br><br>
+            </div>
+            <p ng-show="form.name.$invalid && submitted" class="help-block alert alert-danger">Your name is required.</p>
+            <br><br>
             <div class="control-group">
                 <label label-default="" class="control-label">Card Number</label>
                 <div class="controls">
                     <div class="row">
                         <div class="col-md-3">
-                            <input type="text" class="form-control" autocomplete="off" maxlength="4" pattern="\d{4}" title="First four digits" required>
+                            <input type="text" name="cno"  class="form-control" autocomplete="off" maxlength="4" pattern="\d{4}" title="First four digits" required>
                         </div>
                         <div class="col-md-3">
-                            <input type="text" class="form-control" autocomplete="off" maxlength="4" pattern="\d{4}" title="Second four digits" required>
+                            <input type="text" name="cno" class="form-control" autocomplete="off" maxlength="4" pattern="\d{4}" title="Second four digits" required>
                         </div>
                         <div class="col-md-3">
-                            <input type="text" class="form-control" autocomplete="off" maxlength="4" pattern="\d{4}" title="Third four digits" required>
+                            <input type="text" name="cno" class="form-control" autocomplete="off" maxlength="4" pattern="\d{4}" title="Third four digits" required>
                         </div>
                         <div class="col-md-3">
-                            <input type="text" class="form-control" autocomplete="off" maxlength="4" pattern="\d{4}" title="Fourth four digits" required>
+                            <input type="text" name="cno" class="form-control" autocomplete="off" maxlength="4" pattern="\d{4}" title="Fourth four digits" required>
                         </div>
                     </div>
                 </div>
-            </div><br><br>
+            </div>
+            <p ng-show="form.cno.$invalid && submitted" class="help-block alert alert-danger">Card Number is invalid.</p>
+            <br><br>
+
             <div class="control-group">
                 <label label-default="" class="control-label">Card Expiry Date</label>
                 <div class="controls">
@@ -82,19 +87,22 @@
                 <div class="controls">
                     <div class="row">
                         <div class="col-md-3">
-                            <input type="text" class="form-control" autocomplete="off" maxlength="3" pattern="\d{3}" title="Three digits at back of your card" required>
+                            <input type="text" name="CVV" class="form-control" autocomplete="off" maxlength="3" pattern="\d{3}" title="Three digits at back of your card" required>
                         </div>
                         <div class="col-md-8"></div>
                     </div>
                 </div>
-            </div><br>
+            </div>
+            <p ng-show="form.CVV.$invalid && submitted" class="help-block alert alert-danger">CVV is invalid.</p>
+            <br>
             <div class="control-group">
               <label label-default="" class="control-label"></label>
               <div class="controls">
-                <button type="submit" class="btn btn-primary" ng-click="vm.addNewOrder()">Submit</button> 
+                <button type="submit" class="btn btn-primary">Submit</button> 
                 <button type="button" class="btn btn-default">Cancel</button>
               </div>
             </div>
         </fieldset>
+        </form>
     </div>
 </div>
