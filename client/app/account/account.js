@@ -26,7 +26,7 @@ angular.module('foodmingleApp')
       })
       .state('settings', {
         url: '/settings',
-        templateUrl: 'app/account/signup/updateProfile.html',
+        templateUrl: 'app/account/settings/settings.html',
         controller: 'SettingsController',
         controllerAs: 'vm',
         authenticate: true
@@ -97,6 +97,13 @@ angular.module('foodmingleApp')
         controllerAs: 'vm',
         authenticate: "customer"
       })
+      .state('getallorders', {
+        url: '/getallorders',
+        templateUrl: 'app/account/getoffer/getallorders.html',
+        controller: 'GetoffersCtrl',
+        controllerAs: 'vm',
+        authenticate: "customer"
+      })
       .state('payment', {
         url: '/payment',
         templateUrl: 'app/orders/payment.html',
@@ -110,6 +117,27 @@ angular.module('foodmingleApp')
         templateUrl: 'app/account/contactus/contactus.html',
         controller: 'ContactusController',
         controllerAs: 'vm'
+      })
+      .state('faq', {
+        url: '/faq',
+        templateUrl: 'app/account/faq.html'
+       
+      })
+      .state('aboutus', {
+        url: '/aboutus',
+        templateUrl: 'app/account/aboutus.html'       
+      })
+       .state('termsandcond', {
+        url: '/termsandcond',
+        templateUrl: 'app/account/termsandcond.html'       
+      })
+       .state('offeroftheday', {
+        url: '/offeroftheday',
+        templateUrl: 'app/account/offeroftheday.html'       
+      })
+      .state('referandearn', {
+        url: '/referandearn',
+        templateUrl: 'app/account/referandearn.html'       
       });
  
   })

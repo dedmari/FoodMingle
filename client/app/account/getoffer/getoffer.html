@@ -1,34 +1,40 @@
-<div ng-show ="offerDeleted" style = "align:center" class = "col-md-12">
-  <p class="alert alert-danger text-center" >Offer Deleted Successfully</p>
-</div>
-<div class="col-md-12">
-  <h1>My Offers</h1>
-  <table class="table table-striped">
-    <thead>
-      <th class="text-center">Dish Name</th>
-      <th class="text-center">Price of Dish</th>
-      <th class="text-center">Quantity</th>
-      <th class="text-center">Address</th>
-      <th class="text-center">Date and Time</th>
-      <th class="text-center">Status</th>
-      <th class="text-center">Action</th>
-    </thead>
-    <tbody>
-      <tr ng-repeat="cookoffer in cookoffers">
-        <td class="text-center">{{cookoffer.dishname}}</td>
-        <td class="text-center">{{cookoffer.pricedish}}</td>
-        <td class="text-center">{{cookoffer.quantity}}</td>
-        <td class="text-center">{{cookoffer.address}}</td>
-        <td class="text-center">{{cookoffer.date_time}}</td>
-        <td class="text-center">{{cookoffer.status}}</td>
-        <td ng-hide="vm.isOrdered(cookoffer.status)">
-          <button  class="btn btn-success" ng-click="vm.editOffer($index)">Edit</button> |
-          <button  class="btn btn-danger" ng-click="vm.deleteOffer($index)" confirm-click="Are you sure you want to delete this offer?">Delete</button>
-        </td>
-        <td ng-show="vm.isOrdered(cookoffer.status)">
-          <p class="bg-danger col-md-9">Can't delete or edit offer(already ordered)</p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div class="container futovac ">
+  <div class = "breadcrumbs">
+      <a ui-sref = "main">Home</a> &nbsp;&gt;&nbsp;
+      <a ui-sref = "getoffer">Get Offers</a>&nbsp;     
+    </div>
+  <div ng-show ="offerDeleted" >
+    <p class="alert alert-danger text-center" >Offer Deleted Successfully</p>
+  </div>
+  <div class="col-md-12">
+    <h1>My Offers</h1>
+    <table class="table table-striped">
+      <thead>
+        <th class="text-center">Dish Name</th>
+        <th class="text-center">Price of Dish</th>
+        <th class="text-center">Quantity</th>
+        <th class="text-center">Address</th>
+        <th class="text-center">Date and Time</th>
+        <th class="text-center">Status</th>
+        <th class="text-center">Action</th>
+      </thead>
+      <tbody>
+        <tr ng-repeat="cookoffer in cookoffers">
+          <td class="text-center">{{cookoffer.dishname}}</td>
+          <td class="text-center">{{cookoffer.pricedish}}</td>
+          <td class="text-center">{{cookoffer.quantity}}</td>
+          <td class="text-center">{{cookoffer.address}}</td>
+          <td class="text-center">{{cookoffer.date_time}}</td>
+          <td class="text-center">{{cookoffer.status}}</td>
+          <td ng-hide="vm.isOrdered(cookoffer.status)">
+            <button  class="btn btn-success" ng-click="vm.editOffer($index)">Edit</button> |
+            <button  class="btn btn-danger" ng-click="vm.deleteOffer($index)" confirm-click="Are you sure you want to delete this offer?">Delete</button>
+          </td>
+          <td ng-show="vm.isOrdered(cookoffer.status)">
+            <p class="bg-danger col-md-9">Can't delete or edit offer(already ordered)</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

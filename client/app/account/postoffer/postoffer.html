@@ -17,69 +17,71 @@
         </div>
       
      <div class="form-bottom">
-    <form class="form-horizontal" name="form" style="opacity: 1">
+    <form class="form-horizontal" ng-show="submit" role="form" name="form" style="opacity: 1" ng-submit="vm.addNewOffer(form)" novalidate>
+    <form class="form-horizontal" ng-show="update" role="form" name="form" style="opacity: 1" ng-submit="vm.updateOffer(form)" novalidate>
       <div class="form-group">
         <label class="control-label col-sm-4" for="name"><b>Name of Dish:</b></label>
         <div class="col-xs-6">
-          <input type="text" class="form-control col-sm-4" name="name" placeholder="Enter name of Dish" ng-model = "Offer.dishname">
-        </div>
+          <input type="text" class="form-control col-sm-4" name="name" placeholder="Enter name of Dish" ng-model = "Offer.dishname" required>
+        </div>        
       </div>
-      <div class="form-group">
+      <p ng-show="form.name.$invalid && submitted" class="help-block alert alert-danger">Your name is required.</p>
+      <div class="form-group" >
         <label class="control-label col-sm-4" for="name"><b>Price of Dish</b></label>
         <div class="col-xs-6">
-          <input type="text" class="form-control" name="price_dish" placeholder="Enter the price of dish" ng-model="Offer.pricedish">
+          <input type="text" class="form-control" name="price_dish" placeholder="Enter the price of dish" ng-model="Offer.pricedish" required>
         </div>
       </div>
-
-      <div class="form-group">
+      <p ng-show="form.price_dish.$invalid && submitted" class="help-block alert alert-danger">Price of Dish is required.</p>
+      <div class="form-group" >
         <label class="control-label col-sm-4" for="address"><b>Address:</b></label>
         <div class="col-xs-6">
-          <input type="text" class="form-control" name="address" placeholder="Enter your address" ng-model="Offer.address">
+          <input type="text" class="form-control" name="address" placeholder="Enter your address" ng-model="Offer.address" >
         </div>
-      </div>
-
+      </div>      
+      <p ng-show="form.address.$error && submitted" class="help-block alert alert-danger">Address is required.</p>
       <div class="form-group" >
         <label class="control-label col-sm-4" for="email"><b>Email:</b></label>
         <div class="col-xs-6">
-          <input type="email" class="form-control" name="email" placeholder="Enter email" ng-model="Offer.email">
+          <input type="email" class="form-control" name="email" placeholder="Enter email" ng-model="Offer.email" required>
         </div>
       </div>
-
-      <div class="form-group">     
+      <p ng-show="form.email.$error.required && submitted" class="help-block alert alert-danger">Email is required.</p>
+      <div class="form-group" >     
         <label class="control-label col-sm-4" for="date_posted"><b>Date:</b></label>
           <div class="col-xs-6"> 
                 
-            <input size="16" type="datetime-local" value="" class="form-control" name="date_time" placeholder="Enter date of pickup" ng-model="Offer.date_time"  required/>   
+            <input size="16" type="datetime-local" value="" class="form-control" name="date_time" placeholder="Enter date of pickup" ng-model="Offer.date_time"  required>   
               <span class="add-on"><i class="icon-th"></i></span>
                  
         </div>       
       </div>
-
-       <div class="form-group">
+      <p ng-show="form.date_time.$invalid && submitted " class="help-block alert alert-danger">Date time is required.</p>
+       <div class="form-group" >
         <label class="control-label col-sm-4" for="quantity"><b>Quantity</b></label>
         <div class="col-xs-6"> 
-          <input type="text" class="form-control" name="quantity" placeholder="Enter Quantity" ng-model="Offer.quantity">
+          <input type="text" class="form-control" name="quantity" placeholder="Enter Quantity" ng-model="Offer.quantity" required>
         </div>
       </div>
-      
-      <div class="form-group">
+      <p ng-show="form.quantity.$invalid && submitted" class="help-block alert alert-danger">Quantity is required.</p>
+      <div class="form-group" >
         <label class="control-label col-sm-4" for="image" ><b>Upload Image</b></label>
         <div class="col-xs-6"> 
-          <input type="file" class="form-control" name="password" placeholder="Enter password"  file-upload="Offer.file" required/ >
+          <input type="file" class="form-control col-sm-4" name="password" placeholder="Enter password"  file-upload="Offer.file" required> <br>       
+          <img class="img-responsive" ng-src="http://127.0.0.1:9000/files?{{Offer.dishimage}}" alt="" >
         </div>
       </div>
+      
       <div ng-show="submit" class="form-group"> 
         <div class=" col-sm-3">
-          <button  type="submit" class="btn btn-inverse btn-lg btn-register" ng-click="vm.addNewOffer()">Submit</button>
+          <button  type="submit" class="btn btn-inverse btn-lg btn-register">Submit</button>
         </div>
-      
-      
-        <div ng-show="update" class=" col-sm-3">
-          <button type="submit" class="btn btn-inverse btn-lg btn-register" ng-click="vm.updateOffer()">Update</button>
-        </div>
-      
       </div>
-
+      <div ng-show="update" class="form-group">
+        <div class=" col-sm-3 form-group">
+          <button type="submit" class="btn btn-inverse btn-lg btn-register" >
+          Update</button>
+        </div>
     </form>
 
     </div>
