@@ -19,14 +19,14 @@
         <mxCell id="7" value="Support / Technical Help" style="whiteSpace=wrap;strokeWidth=2;" parent="1" vertex="1">
           <mxGeometry x="176" y="204" width="118" height="49" as="geometry" />
         </mxCell>
-        <mxCell id="10" value="Insurance and other similar products" style="whiteSpace=wrap;strokeWidth=2;" parent="1" vertex="1">
+        <mxCell id="10" value="Credit cards" style="whiteSpace=wrap;strokeWidth=2;" parent="1" vertex="1">
           <mxGeometry x="470" y="204" width="118" height="49" as="geometry" />
         </mxCell>
         <mxCell id="11" value="Financial Advice" style="whiteSpace=wrap;strokeWidth=2;" parent="1" vertex="1">
-          <mxGeometry x="846.14" y="204" width="118" height="49" as="geometry" />
+          <mxGeometry x="990" y="204" width="118" height="49" as="geometry" />
         </mxCell>
         <mxCell id="12" value="Real-time Market data" style="whiteSpace=wrap;strokeWidth=2;" parent="1" vertex="1">
-          <mxGeometry x="1013.14" y="204" width="126" height="49" as="geometry" />
+          <mxGeometry x="1190" y="204" width="126" height="49" as="geometry" />
         </mxCell>
         <mxCell id="13" value="" style="curved=1;startArrow=none;endArrow=block;exitX=-0.01;exitY=0.57;entryX=0.5;entryY=0;" parent="1" source="2" target="3" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -92,7 +92,7 @@
           <mxGeometry x="300" y="310" width="118" height="49" as="geometry" />
         </mxCell>
         <mxCell id="q5m9AT1VjScDrk_934wd-27" value="Non-BBL" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
-          <mxGeometry x="650" y="300" width="118" height="49" as="geometry" />
+          <mxGeometry x="650" y="300" width="130" height="49" as="geometry" />
         </mxCell>
         <mxCell id="q5m9AT1VjScDrk_934wd-31" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.75;entryX=0.5;entryY=0.01;exitDx=0;exitDy=0;" edge="1" parent="1" source="q5m9AT1VjScDrk_934wd-26">
           <mxGeometry relative="1" as="geometry">
@@ -127,17 +127,23 @@
         <mxCell id="q5m9AT1VjScDrk_934wd-37" value="Internal data is not sufficient to answer the Query" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
           <mxGeometry x="460" y="410" width="118" height="49" as="geometry" />
         </mxCell>
-        <mxCell id="q5m9AT1VjScDrk_934wd-38" value="Fetches data from LLM and internet" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="7" y="253" width="120" height="27" as="geometry" />
+        <mxCell id="q5m9AT1VjScDrk_934wd-38" value="Fetches data from LLM knowledge and internet" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="7" y="253" width="120" height="47" as="geometry" />
         </mxCell>
-        <mxCell id="q5m9AT1VjScDrk_934wd-41" value="Fetches data from LLM and internet" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="175" y="253" width="120" height="27" as="geometry" />
+        <mxCell id="q5m9AT1VjScDrk_934wd-41" value="Fetches data from LLM knowledge and internet" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="175" y="253" width="120" height="47" as="geometry" />
         </mxCell>
-        <mxCell id="q5m9AT1VjScDrk_934wd-42" value="Fetches data BBL internal knowledge base onlyt" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="q5m9AT1VjScDrk_934wd-42" value="Fetches data from BBL&#39;s internal knowledge base only" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="138" y="459" width="132" height="51" as="geometry" />
         </mxCell>
         <mxCell id="q5m9AT1VjScDrk_934wd-43" value="???" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="459" y="459" width="120" height="51" as="geometry" />
+        </mxCell>
+        <mxCell id="q5m9AT1VjScDrk_934wd-46" value="Within existing Data" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="650" y="349" width="130" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="q5m9AT1VjScDrk_934wd-47" value="Fetches data from BBL&#39;s internal knowledge base only" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="648" y="398" width="132" height="51" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
